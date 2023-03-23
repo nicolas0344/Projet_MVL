@@ -2,7 +2,7 @@ library(MASS)
 library(ggplot2)
 library(ggpmisc)
 library(spatialEco)
-library(mclust)
+library(mixtools)
 
 
 # Cette fonction génère aléatoirement un échantillon de taille n issu 
