@@ -252,11 +252,6 @@ Comme on peut le voir sur la figure \ref{res_sim2}, les valeurs estimées par no
 	\label{tab4}
 \end{table}
 
-\newpage
-
-\subsection{Étude sur des données réelles}
-Dans cette sous section nous allons appliquer notre algorithme sur des données réelles provenant de la librairies $MASS$. Le jeu de données que nous allons manipuler est celui intitulé $galaxies$. Un extrait du jeu de données est disponible en figure \ref{galaxies}
-
 %\begin{figure}[htp] 
 %	\centering
 %	\includegraphics[scale=0.45]{images/dataset.png}
@@ -264,10 +259,28 @@ Dans cette sous section nous allons appliquer notre algorithme sur des données 
 %	\label{galaxies}
 %\end{figure}
 
-\newpage
 
-\section{Comparaison de la fonction $EM$ avec $Mclust$}
-La librairie $Mclust$ de $R$ est une librairie dans laquelle est implémentée l'algorithme EM. Afin d'evaluer la performance de notre fonction $EM$ nous allons donc la comparer avec celle prédéfini via dans la $Mclust$. Pour cela, nous utiliserons toujours le même jeu de données, à savoir, $galaxies$.
+\section{Comparaison de la fonction $EM$ avec $mixtools$ sur des données réelles}
+Dans cette section, l'étude sera menée sur des données réelles. Nous utiliserons le jeu de données $galaxies$ provenant de la librairie $MASS$ de $R$. Dans un premier temps, nous allons estimer les paramètres du mélange associés à ce dataset via l'utilisation de notre implémentation de l'algorithme EM (la fonction EM). Nous estimerons ensuite une seconde fois les paramètres de ce même mélange mais cette fois-ci, en utilisant la fonction $normalmixEM$ prédéfinie de $R$ qui est disponible via le package $mixtools$. Nous avons choisi d'utiliser cette librairie car l'algorithme EM y est implémenté et il est utilisé par la fonction $normalmixEM$ pour estimer les paramètres d'un mélange. Le fait de comparer les résultats de notre fonction avec ceux obtenus par celle prédéfini de $R$ nous permettra d'évaluer la performance et la robustesse de notre implémentation sur de vraies données.\\
+Le jeu de données $Galaxies$ est un vecteur numérique qui représente les vitesses en km/s (kilomètres par secondes) de $82$ galaxies. La figure \ref{galaxies} est un extrait de ce jeu de données.
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=0.45]{images/dataset.png}
+	\caption{Extrait du jeu de données $galaxies$}
+	\label{galaxies}
+\end{figure}
+
+Comme il a été mentionné dans la section 2.2, si l'on veut obtenir de bonnes estimations pour les paramètres du mélange, il est primordial de sélectionner correctement les paramètres qui serviront de conditions initiales pour l'algorithme. Nous allons donc détailler la stratégie qui a été mise en place pour sélectionner ces derniers. Étant donné que nous ne connaissons pas la vraie densité associée à ces données, nous avons utilisé dans un premier temps une méthode d'estimation non paramétrique (à noyau) afin de d'estimer cette dernière. La figure \ref{realDataDensEst} représente la courbe de densité estimée par la méthode à noyau. 
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=0.45]{images/realDataDensEst.png}
+	\caption{Densité du dataset $galaxies$ estimée par une méthode à noyau}
+	\label{realDataDensEst}
+\end{figure}
+
+En observant la figure \ref{realDataDensEst}, on peut facilement distinguer 3 pics principaux. Un premier vers 9800 sur l'axe des abscisses, un deuxième vers 21000 et un 3ème vers 32000. Il semblerait aussi y avoir une sorte de pic vers 24000 mais celui-ci n'étant pas clairement visible nous ne le considérerons pas. On supposera donc pour la suite de l'étude que nous somme dans le cas d'un mélange à 3 composantes.
 
 %\begin{figure}[htp] 
 %	\centering

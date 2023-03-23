@@ -1,11 +1,9 @@
 library(MASS)
 library(ggplot2)
+library(ggpmisc)
+library(spatialEco)
+library(mixtools)
 
-
-dt_param = data.frame(mixtureParameters = c("parameters of Mixture1",
-                                           "parameters of Mixture2"),
-                            alpha = c(0.4,0.6), mean = c(50, 220),
-                            sd = c(11, 50))
 
 # Cette fonction génère aléatoirement un échantillon de taille n issu 
 # d'un mélange gaussien
@@ -42,18 +40,19 @@ simulation = function(dt_param, n=100){
   return(X)
 }
 
-
+# fonction permettant d'afficher l'histogramme des données ainsi que
+# la courbe de densité associée à ces données. Elle sera superposée à
+# l'histogramme
 plot_distrib = function(df, X){
   data_distrib = data.frame(gaussian_mixture = X)
   ggplot(data_distrib, aes(x=data_distrib[,'gaussian_mixture'])) + 
-  geom_histogram(aes(y=..density..), colour="black", fill="white", bins = 50) +
-  geom_density(alpha=.5, color = "green", fill="orange", size=1.2) + 
-  ggtitle("Distribution du mélange gaussien") + xlab("")
+    geom_histogram(aes(y=..density..), colour="black", fill="white", bins = 50) +
+    geom_density(alpha=.5, color = "green", fill="orange", size=1.2) + 
+    ggtitle("Distribution du mélange gaussien") + xlab("")
 }
 
-plot_distrib(dt_param, samp)
 
-# Fonction générant dataframe (vide)
+# Fonction générant un dataframe (vide)
 # contenant les valeurs de P_thetat(j|X = X_i) (etape E de l'algo)
 # Cette fonction prend en argument n (la taille de l'échantillon)
 # Et J le nombre de mélange
@@ -74,7 +73,7 @@ param_State_E = function(n, J){
 # Cette fonction retourne un dataframe contenant les valeurs des
 # paramètres alpha, mu et sigma estimées
 
-algo_EM = function(dt_init, X, K){
+EM = function(dt_init, X, K){
   J = dim(dt_init)[1]
   n = length(X)
   data_stateE = param_State_E(n, J)
@@ -113,7 +112,7 @@ algo_EM = function(dt_init, X, K){
         # on met à jour les sigma
         if(col == 4){
           dt_init[,col][ind] = sqrt((sum( (X-rep(dt_init[,col-1][ind],n))^2
-                                            *H[,ind] ))/sum(H[,ind]))
+                                          *H[,ind] ))/sum(H[,ind]))
         }
       }
     }
@@ -123,40 +122,125 @@ algo_EM = function(dt_init, X, K){
   return(new_df)
 }
 
+#######################################################################
+#PARTIE TEST
+#######################################################################
+
+#################################
+# TESTS POUR des mélanges simulés
+#################################
+
+# pour un melange à deux gaussiennes
+dt_param = data.frame(mixtureParameters = c("parameters of Mixture1",
+                                            "parameters of Mixture2"),
+                      alpha = c(0.4,0.6), mean = c(50, 220),
+                      sd = c(11, 50))
+
 dt_init = data.frame(mixtureParameters = c("parameters of Mixture1",
                                            "parameters of Mixture2"),
-                            alpha_init = c(0.2,0.8), mean_init = c(30, 280),
-                            sd_init = c(21, 160))
+                     alpha_init = c(0.2,0.8), mean_init = c(30, 280),
+                     sd_init = c(21, 160))
+# On simule un échantillon d'un mélange à 2 gaussiennes de taille 100
+samp = simulation(dt_param, 100)
+# On affiche la densité des données simulées à l'aide d'une methode à noyau
+plot_distrib(dt_param, samp)
+# On exécute notre fonction EM sur ces données simulées
+paramEst = EM(dt_init, samp, 10)
+print(dt_param)
+print(paramEst)
 
+# pour un mélange à quatre gausiennes
 dt_param2 = data.frame(mixtureParameters = c("parameters of Mixture1",
+                                             "parameters of Mixture2",
+                                             "parameters of Mixture3",
+                                             "parameters of Mixture4"),
+                       alpha = c(0.3, 0.33, 0.15, 0.22),
+                       mean = c(35, 350, 720,1198),
+                       sd = c(11, 22, 32, 55))
+
+dt_init2 = data.frame(mixtureParameters = c("parameters of Mixture1",
                                             "parameters of Mixture2",
                                             "parameters of Mixture3",
                                             "parameters of Mixture4"),
-                      alpha = c(0.3, 0.33, 0.15, 0.22),
-                      mean = c(35, 350, 720,1198),
-                      sd = c(11, 22, 32, 55))
+                      alpha_init = c(0.33, 0.3, 0.17, 0.2),
+                      mean_init = c(30, 370, 717, 1238),
+                      sd_init = c(10, 25, 30, 57))
 
-dt_init2 = data.frame(mixtureParameters = c("parameters of Mixture1",
-                                           "parameters of Mixture2",
-                                           "parameters of Mixture3",
-                                           "parameters of Mixture4"),
-                     alpha_init = c(0.33, 0.3, 0.17, 0.2),
-                     mean_init = c(30, 370, 717, 1238),
-                     sd_init = c(10, 25, 30, 57))
-
+# On simule un échantillon d'un mélange à 3 gaussiennes de taille 1000
 samp2 = simulation(dt_param2, 1000)
+# On affiche la densité des données simulées à l'aide d'une methode à noyau
 plot_distrib(dt_init2, samp2)
-
-paramEst = algo_EM(dt_init2, samp2, 10)
+# On exécute notre fonction EM sur ces données simulées
+paramEst2 = EM(dt_init2, samp2, 10)
 print(dt_param2)
-print(paramEst)
-
+print(paramEst2)
+#################################
 # test sur vrai jeu de données
-df = as.data.frame(galaxies)
-ggplot(df, aes(x = galaxies)) + 
-  stat_density(geom = 'line', kernel = 'gaussian')
+#################################
 
-# data(galaxies)
-# X = galaxies/1000
-# d = density(X, kernel = 'gaussian')
-# plot(d, lwd = 2, main = 'test')
+# On affiche la densité estimée par methode à noyau du dataset galaxies
+df_galaxies = as.data.frame(galaxies)
+ggplot(df_galaxies, aes(x = df_galaxies[,1])) +
+  geom_density(alpha=.5, color = "deepskyblue", fill="firebrick", size=1.2) + 
+  xlab("")
+
+# On estime les paramètres du mélange gaussien issu de vraies données (galaxies)
+# Pour cela on utilise la librairie Mixtools et la fonction normalmixEM
+# qui utilise l'algo EM
+paramMix = normalmixEM(galaxies, k=3)
+p=paramMix$lambda
+mu=paramMix$mu
+sigma=paramMix$sigma
+paramEstLib = data.frame(
+  mixtureParameters = c("parameters of Mixture1",
+                        "parameters of Mixture2",
+                        "parameters of Mixture3"),
+  alpha = p,
+  mean = mu,
+  sd = sigma
+)
+
+# On va maintenant estimer les paramètre du mélange avec notre fonction EM
+# Puis comparer les resultats obtenus avec ceux de la la fonction prédéfini
+# de R (normalmixEM)
+coord = density(galaxies)
+abs = coord$x
+ord = coord$y
+df = data.frame(x = abs, y = ord)
+
+# on calcule la liste dans laquelle seront stockés les moyennes 
+# des 3 mélanges. Elles serviront de paramètres initiaux pour les mu.
+mu_init = abs[ggpmisc:::find_peaks(ord)]
+
+extremum = local.min.max(ord)
+# On récupère les indexes des min locaux
+indexMinLoc = match(extremum$minima, ord)
+# on affiche la densité estimée par la méthode à noyau avec les max locaux
+# (points rouges) et les min locaux (points bleus)
+dfMinLoc = data.frame(x = c(abs[indexMinLoc[1]], abs[indexMinLoc[2]]),
+                      y = c(ord[indexMinLoc[1]], ord[indexMinLoc[2]]))
+ggplot(data = df, aes(x = x, y = y)) + geom_line() + stat_peaks(col = "red", size=2)+
+  geom_point(data = dfMinLoc, color='blue', size=2) +
+  xlab("Velocities of galaxies") + ylab("density")
+
+# on calcule chacun des 3 sigma qui seront utilisés pour
+# les conditions initiales
+sigma_init1 = sd(abs[1:(indexMinLoc[1])])
+sigma_init2 = sd(abs[(indexMinLoc[1]):(indexMinLoc[2])])
+sigma_init3 = sd(abs[(indexMinLoc[2]):512])
+Sigma_init = c(sigma_init1, sigma_init2, sigma_init3)
+
+#On calcule les alpha des paramètres initiaux
+Alpha_init = rep(1/3, 3)
+
+# On crée le dt_init pour lancer notre fonction EM sur les données galaxies
+
+dt_init3 = data.frame(mixtureParameters = c("parameters of Mixture1",
+                                            "parameters of Mixture2",
+                                            "parameters of Mixture3"),
+                      alpha_init = Alpha_init,
+                      mean_init = mu_init,
+                      sd_init = Sigma_init)
+# Affichage des paramètres estimés par notre fonction EM
+# sur les vraies données galaxies
+paramEstEM = EM(dt_init3, galaxies, 10)
