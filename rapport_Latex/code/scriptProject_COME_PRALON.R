@@ -48,7 +48,7 @@ plot_distrib = function(df, X){
   ggplot(data_distrib, aes(x=data_distrib[,'gaussian_mixture'])) + 
     geom_histogram(aes(y=..density..), colour="black", fill="white", bins = 50) +
     geom_density(alpha=.5, color = "green", fill="orange", size=1.2) + 
-    ggtitle("Distribution du mélange gaussien") + xlab("")
+    ggtitle("Distribution du melange gaussien") + xlab("")
 }
 
 
@@ -82,8 +82,8 @@ EM = function(dt_init, X, K){
     vect_alpha = dt_init[,2] #de longueur J
     vect_mean = dt_init[,3]
     vect_sd = dt_init[,4]
-    # vecteur contenant la somme des des numérateurs de P_thetat(j|X = X_i)
-    # pour chaque valeur de l’échantillon 
+    # vecteur contenant la somme des des numerateurs de P_thetat(j|X = X_i)
+    # pour chaque valeur de l echantillon 
     v = rep(0,n) 
     
     # Etape E
@@ -101,15 +101,15 @@ EM = function(dt_init, X, K){
     for(col in 2:4){ #on met a jour le dt_init
       for(ind in 1:J){
         
-        # on met à jour les alpha
+        # on met a jour les alpha
         if(col == 2){
           dt_init[,col][ind] = mean(H[,ind])
         }
-        # on met à jour les mu
+        # on met a jour les mu
         if(col == 3){
           dt_init[,col][ind] = (sum(X*H[,ind]))/(sum(H[,ind]))
         } 
-        # on met à jour les sigma
+        # on met a jour les sigma
         if(col == 4){
           dt_init[,col][ind] = sqrt((sum( (X-rep(dt_init[,col-1][ind],n))^2
                                           *H[,ind] ))/sum(H[,ind]))
@@ -192,9 +192,9 @@ p=paramMix$lambda
 mu=paramMix$mu
 sigma=paramMix$sigma
 paramEstLib = data.frame(
-  mixtureParameters = c("parameters of Mixture1",
-                        "parameters of Mixture2",
-                        "parameters of Mixture3"),
+  mixtureParameters = c("parameters of Mixture1 estimate by normalmixEM",
+                        "parameters of Mixture2 estimate by normalmixEM",
+                        "parameters of Mixture3 estimate by normalmixEM"),
   alpha = p,
   mean = mu,
   sd = sigma
