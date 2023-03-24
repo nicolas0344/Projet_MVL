@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  24 MAR 2023 04:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  24 MAR 2023 19:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1359,12 +1359,12 @@ Package rerunfilecheck Info: File `Projet_MVL_COME_PRALON.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  33782 strings out of 475389
- 665485 string characters out of 2777000
- 1081447 words of memory out of 3000000
+ 665473 string characters out of 2777000
+ 1081448 words of memory out of 3000000
  54401 multiletter control sequences out of 15000+600000
  492440 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,14n,118p,1004b,1220s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 114i,14n,118p,1003b,1220s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\eccc1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1393,7 +1393,7 @@ rs/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
 sy10.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy5.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy7.pfb>
-Output written on Projet_MVL_COME_PRALON.pdf (15 pages, 535210 bytes).
+Output written on Projet_MVL_COME_PRALON.pdf (15 pages, 535176 bytes).
 PDF statistics:
  859 PDF objects out of 1000 (max. 8388607)
  143 named destinations out of 1000 (max. 500000)

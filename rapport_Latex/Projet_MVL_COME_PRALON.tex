@@ -60,7 +60,7 @@ Le présent projet s'inscrit dans le cadre de l'unité d'enseignement "HAX006X M
 \newpage
 
 \section{L'algorithme EM}
-Dans cette section nous allons nous intéresser à l'algorithme EM (Expectation-Maximization) afin d'estimer les paramètres $\alpha$, $\mu$ et $\sigma$ d'un mélange gaussien. Nous avons implémenté cet algorithme via la fonction $EM$ (présente dans notre script $R$) en nous aidant de la source \cite{EM_algorithm}. Afin de tester l'efficacité de notre implémentation, nous allons dans un premier temps l'éxecuter sur des données simulées. En effet, dans notre script, nous avons implémenté une autre fonction que nous avons nommé $simulation$. Cette dernière nous permettra de générer de manière aléatoire, un échantillon issu d'un mélange gaussien. Nous décrirons plus en détaille cette fonction, en aval. Dans un second temps, nous exécuterons notre algorithme sur de vraies données afin de voir s'il est robuste. Pour cela nous utiliserons le jeu de données galaxies de la librairie MASS et nous le décrirons ultérieurement.
+Dans cette section nous allons nous intéresser à l'algorithme EM (Expectation-Maximization) afin d'estimer les paramètres $\alpha$, $\mu$ et $\sigma$ d'un mélange gaussien. Nous avons implémenté cet algorithme via la fonction $EM$ (présente dans notre script $R$) en nous aidant de la source \cite{EM_algorithm}. Afin de tester l'efficacité de notre implémentation, nous allons dans un premier temps l'exécuter sur des données simulées. En effet, dans notre script, nous avons implémenté une autre fonction que nous avons nommée $simulation$. Cette dernière nous permettra de générer de manière aléatoire, un échantillon issu d'un mélange gaussien. Nous décrirons plus en détail cette fonction, en aval. Dans un second temps, nous exécuterons notre algorithme sur de vraies données afin de voir s'il est robuste. Pour cela nous utiliserons le jeu de données galaxies de la librairie MASS et nous le décrirons ultérieurement.
 
 \subsection{Implémentation de la fonction simulation}
 Comme il a été mentionné précédemment nous allons réaliser dans un premier temps une étude sur des données simulées à partir de la fonction $simulation$ (le code de son implémentation est disponible en annexes). Décrivons cette dernière, elle prend en argument:
@@ -68,7 +68,7 @@ Comme il a été mentionné précédemment nous allons réaliser dans un premier
 	\item \textbf{dt\_param:} Le dataframe contenant les paramètres $\alpha$, $\mu$ et $\sigma$
 	\item \textbf{n:} La taille de l'échantillon
 \end{itemize}
-Elle retourne un vecteur de taille $n$ qui sera l'échantillon du mélange gaussien. \\ Regardons un plus en détaille comment a été conçue cette fonction. \\
+Elle retourne un vecteur de taille $n$ qui sera l'échantillon du mélange gaussien. \\ Regardons un plus en détail comment a été conçue cette fonction. \\
 La partie la plus importante et la plus subtile de ce script est celle dans laquelle nous distribuons aléatoirement les $(X_i)_{i \in 1,\dots,n}$ de l'échantillon de sorte à avoir un bon mélange gaussien. \\
 Afin de simplifier les choses, rien de mieux que de prendre un exemple. Dans celui-ci, l'objectif sera de générer un mélange de quatre gaussiennes, ayant pour paramètres respectifs $\theta_1 = (\alpha_1, \mu_1, \sigma_1)$, $\theta_2 = (\alpha_2, \mu_2, \sigma_2)$, $\theta_3 = (\alpha_3, \mu_3, \sigma_3)$ et $\theta_4 = (\alpha_4, \mu_4, \sigma_4)$. \\
 Les $(\alpha_j)_{j \in \{1,\dots,4\}}$ étant ici des probabilités, nous avons que:
@@ -115,7 +115,7 @@ La fonction $EM$ prend en argument:
 \end{itemize}  
 Elle retourne un dataframe contenant les valeurs des
 paramètres estimées par l'algorithme, à savoir $\alpha$, $\mu$ et $\sigma$. \\
-Les formules que nous avons utilisé pour calculer l'étape E et M et qui sont présentées ci dessous sont issue de la source \cite{EM_algorithm}.
+Les formules que nous avons utilisées pour calculer l'étape E et M et qui sont présentées ci dessous sont issues de la source \cite{EM_algorithm}.
 \begin{itemize}
 	\item Lors de l'étape E nous déterminons la probabilité $\mathbb{P}_{\tilde{\theta}}(Z = j| X = X_i)$ via la formule suivante:
 	\[
@@ -131,7 +131,7 @@ Les formules que nous avons utilisé pour calculer l'étape E et M et qui sont p
 \vspace{1mm}
 Comme en témoigne la section 3.3 (Preuve de la croissance de la vraisemblance d’une itération à l’autre) de la source \cite{EM_algorithm}, il est théoriquement prouvé que l'algorithme permet de faire croître la log-vraisemblance des observations
 en les paramètres itérativement créés.
-Cependant, il est important de notifier le fait qu'il n'existe pas de convergence de la suite de paramètres établies par l'algorithme EM. En effet, ces derniers peuvent rester bloqués dans des extremas locaux. On comprend donc qu'il est primordial de choisir de bons paramètres initiaux afin de ne pas être confronté à ce problème. Dans la section consacrée à l'étude sur de vraies données, nous expliciterons la procédure qui a été mise en place pour choisir ces paramètres initiaux.
+Cependant, il est important de notifier le fait qu'il n'existe pas de convergence de la suite de paramètres établie par l'algorithme EM. En effet, ces derniers peuvent rester bloqués dans des extremas locaux. On comprend donc qu'il est primordial de choisir de bons paramètres initiaux afin de ne pas être confronté à ce problème. Dans la section consacrée à l'étude sur de vraies données, nous expliciterons la procédure qui a été mise en place pour choisir ces paramètres initiaux.
 
 \newpage
 
@@ -149,7 +149,7 @@ La densité associée à cet échantillon a été estimée de manière non param
 	\label{density_sim}
 \end{figure}
 
-Nous avons ensuite appliqué notre algorithme (fonction EM) sur cet échantillon. Le tableau \ref{tab1} contient les valeurs des vrais paramètres de ce mélange simulé. Comme il a été mentionné précédemment, le choix des paramètres initiaux est crucial si l'on veut que l'algorithme estime correctement les paramètres du mélange. Le tableau \ref{tab2} contient les valeurs des paramètres initiaux utilisés. Comme vous pouvez le voir en observant ces deux tableaux, nous avons choisi des paramètre initiaux assez proches des vrais paramètres (sauf pour la variance du 2ème mélange) de manière à ne pas être bloqué dans des extremas locaux. Les résultats obtenus par notre algorithme sont affichés sur la capture d'écran de la figure \ref{res_sim}.
+Nous avons ensuite appliqué notre algorithme (fonction EM) sur cet échantillon. Le tableau \ref{tab1} contient les valeurs des vrais paramètres de ce mélange simulé. Comme il a été mentionné précédemment, le choix des paramètres initiaux est crucial si l'on veut que l'algorithme estime correctement les paramètres du mélange. Le tableau \ref{tab2} contient les valeurs des paramètres initiaux utilisés. Comme vous pouvez le voir en observant ces deux tableaux, nous avons choisi des paramètres initiaux assez proches des vrais paramètres (sauf pour la variance du 2ème mélange) de manière à ne pas être bloqué dans des extremas locaux. Les résultats obtenus par notre algorithme sont affichés sur la capture d'écran de la figure \ref{res_sim}.
 
  Comme on peut le voir sur la figure \ref{res_sim}, les valeurs estimées par notre implémentation sont proches de celles des vrais paramètres (voir tableau \ref{tab1}). Ces résultats nous montrent donc que notre fonction $EM$ fonctionne correctement, ce qui est rassurant.
  
@@ -210,7 +210,7 @@ La densité associée à cet échantillon a été estimée de manière non param
 	\label{density_sim2}
 \end{figure}
 
-Nous avons ensuite appliqué notre algorithme (fonction EM) sur cet échantillon. Le tableau \ref{tab3} contient les valeurs des vrais paramètres de ce mélange simulé. Comme il a été mentionné précédemment, le choix des paramètres initiaux est crucial si l'on veut que l'algorithme estime correctement les paramètres du mélange. Le tableau \ref{tab4} contient les valeurs des paramètres initiaux utilisés. Comme vous pouvez le voir en observant ces deux tableaux, nous avons choisi des paramètre initiaux assez proches des vrais de manière à ne pas être bloqué dans des extremas locaux. Les résultats obtenus par notre algorithme sont affichés sur la capture d'écran de la figure \ref{res_sim2}.
+Nous avons ensuite appliqué notre algorithme (fonction EM) sur cet échantillon. Le tableau \ref{tab3} contient les valeurs des vrais paramètres de ce mélange simulé. Comme il a été mentionné précédemment, le choix des paramètres initiaux est crucial si l'on veut que l'algorithme estime correctement les paramètres du mélange. Le tableau \ref{tab4} contient les valeurs des paramètres initiaux utilisés. Comme vous pouvez le voir en observant ces deux tableaux, nous avons choisi des paramètres initiaux assez proches des vrais de manière à ne pas être bloqué dans des extremas locaux. Les résultats obtenus par notre algorithme sont affichés sur la capture d'écran de la figure \ref{res_sim2}.
 
 Comme on peut le voir sur la figure \ref{res_sim2}, les valeurs estimées par notre implémentation sont proches de celles des vrais paramètres (voir tableau \ref{tab3}). Ces résultats nous confortent une fois de plus dans l'idée que notre fonction $EM$ fonctionne correctement.
 
@@ -269,8 +269,8 @@ Comme on peut le voir sur la figure \ref{res_sim2}, les valeurs estimées par no
 
 
 \subsection{Comparaison de la fonction $EM$ avec $mixtools$ sur des données réelles}
-Dans cette section, l'étude sera menée sur des données réelles. Nous utiliserons le jeu de données $galaxies$ provenant de la librairie $MASS$ de $R$. Dans un premier temps, nous allons estimer les paramètres du mélange associés à ce dataset via l'utilisation de notre implémentation de l'algorithme EM (la fonction EM). Nous estimerons ensuite une seconde fois les paramètres de ce même mélange mais cette fois-ci, en utilisant la fonction $normalmixEM$ prédéfinie de $R$ qui est disponible via le package $mixtools$. Nous avons choisi d'utiliser cette librairie car l'algorithme EM y est implémenté et il est utilisé par la fonction $normalmixEM$ pour estimer les paramètres d'un mélange. Le fait de comparer les résultats de notre fonction avec ceux obtenus par celle prédéfini de $R$ nous permettra d'évaluer la performance et la robustesse de notre implémentation sur de vraies données.\\
-Le jeu de données $Galaxies$ est un vecteur numérique qui représente les vitesses en km/s (kilomètres par secondes) de $82$ galaxies. La figure \ref{galaxies} est un extrait de ce jeu de données.
+Dans cette section, l'étude sera menée sur des données réelles. Nous utiliserons le jeu de données $galaxies$ provenant de la librairie $MASS$ de $R$. Dans un premier temps, nous allons estimer les paramètres du mélange associés à ce dataset via l'utilisation de notre implémentation de l'algorithme EM (la fonction EM). Nous estimerons ensuite une seconde fois les paramètres de ce même mélange mais cette fois-ci, en utilisant la fonction $normalmixEM$ prédéfinie de $R$ qui est disponible via le package $mixtools$. Nous avons choisi d'utiliser cette librairie car l'algorithme EM y est implémenté et il est utilisé par la fonction $normalmixEM$ pour estimer les paramètres d'un mélange. Le fait de comparer les résultats de notre fonction avec ceux obtenus par celle prédéfinie de $R$ nous permettra d'évaluer la performance et la robustesse de notre implémentation sur de vraies données.\\
+Le jeu de données $Galaxies$ est un vecteur numérique qui représente les vitesses en km/s (kilomètre par seconde) de $82$ galaxies. La figure \ref{galaxies} est un extrait de ce jeu de données.
 
 \begin{figure}[htp] 
 	\centering
@@ -279,7 +279,7 @@ Le jeu de données $Galaxies$ est un vecteur numérique qui représente les vite
 	\label{galaxies}
 \end{figure}
 
-Comme il a été mentionné dans la section 2.2, si l'on veut obtenir de bonnes estimations pour les paramètres du mélange, il est primordial de sélectionner correctement les paramètres qui serviront de conditions initiales pour l'algorithme. Nous allons donc détailler la stratégie qui a été mise en place pour sélectionner ces derniers. Étant donné que nous ne connaissons pas la vraie densité associée à ces données, nous avons utilisé dans un premier temps une méthode d'estimation non paramétrique (à noyau) afin de d'estimer cette dernière. La figure \ref{realDataDensEst} représente la courbe de densité estimée par la méthode à noyau. 
+Comme il a été mentionné dans la section 2.2, si l'on veut obtenir de bonnes estimations pour les paramètres du mélange, il est primordial de sélectionner correctement les paramètres qui serviront de conditions initiales pour l'algorithme. Nous allons donc détailler la stratégie qui a été mise en place pour sélectionner ces derniers. Étant donné que nous ne connaissons pas la vraie densité associée à ces données, nous avons utilisé dans un premier temps une méthode d'estimation non paramétrique (à noyau) afin d'estimer cette dernière. La figure \ref{realDataDensEst} représente la courbe de densité estimée par la méthode à noyau. 
 
 \newpage
 
@@ -290,14 +290,14 @@ Comme il a été mentionné dans la section 2.2, si l'on veut obtenir de bonnes 
 	\label{realDataDensEst}
 \end{figure}
 
-En observant la figure \ref{realDataDensEst}, on peut facilement distinguer 3 pics principaux. Un premier vers 9800 sur l'axe des abscisses, un deuxième vers 21000 et un 3ème vers 32000. Il semblerait aussi y avoir une sorte de pic vers 24000 mais celui-ci n'étant pas clairement visible nous ne le considérerons pas. On supposera donc pour la suite de l'étude que nous somme dans le cas d'un mélange à 3 composantes. \\
+En observant la figure \ref{realDataDensEst}, on peut facilement distinguer 3 pics principaux. Un premier vers 9800 sur l'axe des abscisses, un deuxième vers 21000 et un 3ème vers 32000. Il semblerait aussi y avoir une sorte de pic vers 24000 mais celui-ci n'étant pas clairement visible nous ne le considérerons pas. On supposera donc pour la suite de l'étude que nous sommes dans le cas d'un mélange à 3 composantes. \\
 Il nous faudra donc déterminer les paramètres:
 \begin{itemize}
 	\item $\alpha_1$,$\alpha_2$ et $\alpha_3$ qui sont les proportions associées aux 3 gaussiennes
 	\item $\mu_1$,$\mu_2$ et $\mu_3$ qui sont les moyennes des 3 gaussiennes
-	\item $\sigma_1$,$\sigma_2$ et $\sigma_3$ qui sont les ecart-types des 3 gaussiennes
+	\item $\sigma_1$,$\sigma_2$ et $\sigma_3$ qui sont les écarts-types des 3 gaussiennes
 \end{itemize}
-Pour commencer, nous dirons que les paramètres $(\alpha_{j})_{j \in \{1,\dots3\}}$ qui seront utilisés dans les conditions initiale seront tous égaux, c'est à dire que $(\alpha_1)_{init} = (\alpha_2)_{init} = (\alpha_3)_{init} = \frac{1}{3}$ (car il faut que $\sum_{i=1}^{3} \alpha_j = 1$).
+Pour commencer, nous dirons que les paramètres $(\alpha_{j})_{j \in \{1,\dots3\}}$ qui seront utilisés dans les conditions initiales seront tous égaux, c'est à dire que $(\alpha_1)_{init} = (\alpha_2)_{init} = (\alpha_3)_{init} = \frac{1}{3}$ (car il faut que $\sum_{i=1}^{3} \alpha_j = 1$).
 
 \vspace{2mm}
 
@@ -323,8 +323,8 @@ Les paramètres $(\mu_j)_{j \in \{1,\dots,3\}}$ qui seront utilisés dans les co
 
 \vspace{2mm}
 
-Les $(\alpha_j)_{j \in \{1,\dots,3\}}$ et les $(\mu_j)_{j \in \{1,\dots,3\}}$ initiaux ayant été déterminés, il ne nous reste plus qu'à trouver les $(\sigma_j)_{j \in \{1,\dots,3\}}$ initiaux. Nous allons les déterminer en calculant les écarts-types de chacun des 3 piques. Tout d'abord, nous scindons nos données en 3 intervalles car il y a 3 piques. C'est à ce moment là qu'interviennent les minimas locaux. En effet, c'est eux qui vont justement nous permettre de délimiter notre jeu de données en 3 intervalles. \\
-Le premier intervalle sera composé des abscisses allant du début du jeu de données jusqu'à l'abscisse du premier minimum local. Le deuxième intervalle quant à lui sera composé des valeurs des abscisses allant du premier minimum local jusqu'au deuxième minimum local. Enfin le dernier intervalle contiendra les abscisses allant du deuxième minimum local jusqu'a la fin du jeu de données. Dans la liste à puces ci-dessous nous avons expliciter les bornes $inf$ et $sup$ de chacun des trois intervalles:
+Les $(\alpha_j)_{j \in \{1,\dots,3\}}$ et les $(\mu_j)_{j \in \{1,\dots,3\}}$ initiaux ayant été déterminés, il ne nous reste plus qu'à trouver les $(\sigma_j)_{j \in \{1,\dots,3\}}$ initiaux. Nous allons les déterminer en calculant les écarts-types de chacun des 3 pics. Tout d'abord, nous scindons nos données en 3 intervalles car il y a 3 pics. C'est à ce moment là qu'interviennent les minimas locaux. En effet, c'est eux qui vont justement nous permettre de délimiter notre jeu de données en 3 intervalles. \\
+Le premier intervalle sera composé des abscisses allant du début du jeu de données jusqu'à l'abscisse du premier minimum local. Le deuxième intervalle quant à lui sera composé des valeurs des abscisses allant du premier minimum local jusqu'au deuxième minimum local. Enfin le dernier intervalle contiendra les abscisses allant du deuxième minimum local jusqu'à la fin du jeu de données. Dans la liste à puces ci-dessous nous avons expliciter les bornes $inf$ et $sup$ de chacun des trois intervalles:
 \begin{itemize}
 	\item \textbf{Première intervalle:} $[6166.482; 13291.36]$
 	\item \textbf{Deuxième intervalle:} $[13291.36; 29611.58]$
@@ -355,12 +355,12 @@ L'ensemble des paramètres initiaux qui ont été déterminés précédemment so
 	\label{tab5}
 \end{table}
 
-Maintenant que nous avons toutes nos conditions initiales, nous sommes en mesure d'exécuter notre implémentation de l'algorithme $EM$ sur les vraies données $galaxies$. Les paramètres du mélange estimés par notre fonction $EM$ sont visibles sur la capture d'écran (figure \ref{res_EM}). Nous les avons également résumé dans le tableau \ref{tab6} pour une meilleur visibilité. 
+Maintenant que nous avons toutes nos conditions initiales, nous sommes en mesure d'exécuter notre implémentation de l'algorithme $EM$ sur les vraies données $galaxies$. Les paramètres du mélange estimés par notre fonction $EM$ sont visibles sur la capture d'écran (figure \ref{res_EM}). Nous les avons également résumé dans le tableau \ref{tab6} pour une meilleure visibilité. 
 
 \begin{figure}[htp] 
 	\centering
 	\includegraphics[scale=0.8]{images/paramEstEM.png}
-	\caption{Paramètres estimées par notre fonction $EM$}
+	\caption{Paramètres estimés par notre fonction $EM$}
 	\label{res_EM}
 \end{figure}
 
@@ -377,18 +377,18 @@ Maintenant que nous avons toutes nos conditions initiales, nous sommes en mesure
 		Paramètres du 3ème mélange estimés par $EM$ & $0.03658357$ & $33044.38$ & $921.7171$ \\
 		\hline
 	\end{tabular}
-	\caption{Paramètres estimées par notre fonction $EM$}
+	\caption{Paramètres estimés par notre fonction $EM$}
 	\label{tab6}
 \end{table}
 
 \newpage
 
-Maintenant que nous avons les paramètres du mélange, estimés par notre implémentation, comparons les avec ceux obtenus en utilisant la fonction $normalmixEM$ de $R$ dans laquelle est implémenté l'algorithme EM. La figure \ref{paramEstLib} est une capture d'écran dans laquelle sont stockés tous les paramètres estimés par la fonction $normalmixEM$ de $R$. Nous les avons également résumé dans le tableau \ref{tab7} pour une meilleur visibilité.  
+Maintenant que nous avons les paramètres du mélange, estimés par notre implémentation, comparons les avec ceux obtenus en utilisant la fonction $normalmixEM$ de $R$ dans laquelle est implémenté l'algorithme EM. La figure \ref{paramEstLib} est une capture d'écran dans laquelle sont stockés tous les paramètres estimés par la fonction $normalmixEM$ de $R$. Nous les avons également résumé dans le tableau \ref{tab7} pour une meilleure visibilité.  
 
 \begin{figure}[htp] 
 	\centering
 	\includegraphics[scale=0.8]{images/paramEstLib.png}
-	\caption{Paramètres estimées par $normalmixEM$}
+	\caption{Paramètres estimés par $normalmixEM$}
 	\label{paramEstLib}
 \end{figure}
 
@@ -405,7 +405,7 @@ Maintenant que nous avons les paramètres du mélange, estimés par notre implé
 		Paramètres du 3ème mélange estimés par $normalmixEM$ & $0.03658357$ & $33044.38$ & $921.7171$ \\
 		\hline
 	\end{tabular}
-	\caption{Paramètres estimées par notre fonction $EM$}
+	\caption{Paramètres estimés par notre fonction $EM$}
 	\label{tab7}
 \end{table}
 
@@ -442,7 +442,7 @@ En regardant les tableaux \ref{tab6} et \ref{tab7}, on constate que les valeurs 
 
 \section{Conclusion}
 
-À vues des résultats et des comparaisons faites entre notre fonction $EM$ et celle $normalmixEM$ du package $mixtools$, nous pouvons conclure que notre implémentation fournira de bonnes estimations aussi bien sur des données simulées que sur des données réelles de mélanges à condition bien évidemment de choisir correctement les conditions initiales. Une piste d'amélioration possible de notre fonction serait d'y ajouter une fonctionnalité de recherche automatique de paramètres initiaux. D'après la littérature, plusieurs techniques peuvent être envisagées. Parmi celles qui reviennent le plus souvent on retrouve la méthode des kmeans ou celle des recuits.
+Au vu des résultats et des comparaisons faites entre notre fonction $EM$ et celle $normalmixEM$ du package $mixtools$, nous pouvons conclure que notre implémentation fournira de bonnes estimations aussi bien sur des données simulées que sur des données réelles de mélanges à condition bien évidemment de choisir correctement les conditions initiales. Une piste d'amélioration possible de notre fonction serait d'y ajouter une fonctionnalité de recherche automatique de paramètres initiaux. D'après la littérature, plusieurs techniques peuvent être envisagées. Parmi celles qui reviennent le plus souvent, on retrouve la méthode des kmeans.
 
 
 \newpage
