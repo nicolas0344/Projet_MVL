@@ -317,6 +317,99 @@ En observant la figure \ref{realDataDensEst}, on peut facilement distinguer 3 pi
 
 \newpage
 
+
+\section{THEME sur des données de Vins}
+
+Dans cette section, à l'inverse de la partie précédente, nous nous plaçons dans un cadre non aléatoire avec un modèle à composantes, les données pour l'illustration sont issues de 21 Vins de Loire, ces Vins étant d'écrient par 2 variables qualitatives (Label: Bourgueuil, Chinon, Saumur), (Sol: En1, Env2, Référence, Env4) ainsi que 29 variables quantitatives décrivent des
+caractéristiques comme l’odeur, le goût des Vins. \newline
+Précisement on organise les variables quantitatives suivants les blocs de thèmes suivants : odeur, arôme, goût, note de goût, plante et composition (chimique).\newline
+
+\begin{itemize}
+	\item \textit{Odeur}, qui comprend les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity,~Quality.of.odour} décrivant les caractéristiques olfactives des Vins. 
+	\item \textit{Arome}, qui renvoie aux variables \textit{Aroma.quality.before.shaking,~Aroma.intensity,~Aroma.persistency,~Aroma.quality} faisant référence aux caractéristiques sensorielles des Vins telles que l'intensité, la qualité, la précence des arômes. 
+	\item \textit{Goût}, comprenant les variables renvoyant au goût fuité, amère, acide ou épicé des Vins : \textit{Fruity.before.shaking,~Fruity,~Acidity,~Spice.before.shaking,~Spice,~Bitterness}
+	\item \textit{Note\_goût}, renvoyant aux notes / caractéristiques gustatives des Vins, le thème comprend les variables commes l'équilibre des saveurs \textit{Balance,~Smooth,~Attack.intensity,~Intensity,~Harmony,~Typical}
+	\item \textit{Plante}, ce thème correspond à des caractères de plantes utilisées dans la fermentation des Vins : \textit{Flower.before.shaking,~Visual.intensity,~Nuance,~Surface.feeling}
+	\item \textit{Composition}, ce dernier theme renvoie aux compositions chimiques des fuits utilisées, telles la teneur alcool ou l'astringence : \textit{Astringency,~Alcohol,~Phenolic,~Plante,~Flower}
+\end{itemize} 
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=0.45]{images/Eq_THEME.png}
+	\caption{Equations thèmatiques}
+\end{figure}
+
+On s'interresse, pour ces variables décrivant les Vins, à prédire les variables caractéristiques de l'odeur des Vins ainsi que d'en tirer des composantes explicatives. Puisque ces caractéristiques d'odeur sont à la fois liées aux variables d'arôme et de goût, elle-même dépendante des variables de composition, de note de gout et de caractéristiques de plantes utilisées dans la fermentation des Vins, l'utilisation de THEME est dans ce cas adéquate à cette recherche. Nous obtenons les deux équations thématiques suivantes : \newline
+
+Dans un premier temps, nous avons décidé d'appliquer THEME sans \textit{cross-validation backward} en partant du modèle avec 2 composantes pour le thème \textit{Odeur}, 2 composantes pour le thème \textit{Arôme}, 3 composantes pour le thème \textit{Goût}, 3 composantes pour le thème \textit{Note\_goût}, 2 composantes pour le thème \textit{Plante} et 2 composantes pour le thème \textit{Composition}. Puisque que l'on cherche à analyser les caractéristiques des odeurs des Vins, on ne prend pas en compte les variables qualitatives de \textit{Sol} et \textit{Env}, de plus la variable \textit{Overall.quality} ne rentrant dans aucune thèmatique. \newline
+
+Voici les resultats de prédictions que nous obtenons pour les deux équations : 
+
+\begin{figure}[htp] 
+	\centering
+	\subfloat[R2 de regression de l'équation 1]{%
+		\includegraphics[scale=0.4]{images/R2_regression_Eq1.png}%
+	}%
+	\hfill%
+	\subfloat[R2 de regression de l'équation 1]{%
+		\includegraphics[scale=0.4]{images/R2_regression_Eq2.png}%
+	}%
+	\caption{R2 de regression linéaire des thèmes Odeur et Goût}
+\end{figure}
+
+On peut constater pour la régression (equation 1) des variables du thème \textit{Goût} sur les variables des thèmes \textit{Note_goût,~Plante,~Composition} sont relativement bonnes hormis pour la regression des variables \textit{Fruity.before.shaking} et notamment \textit{Acidity}. Si l'on représente les variable prédites avec celles mesurées on peut se rendre compte que les points sont assez bien répartis autour de la bissectrice mais que certains d'entre eux en sont également assez éloignés. En particulier on observe certains points extrèmes et des points assez éloignés de la bissectrice pour les deux variables \textit{Fruity.before.shaking,~Acidity} : 
+
+\begin{figure}[htp] 
+	\centering
+	\subfloat[Regression de Fruity.before.shaking, équation 1]{%
+		\includegraphics[scale=0.4]{images/Plot.Predictions_Eq (1).png}%
+	}%
+	\hfill%
+	\subfloat[Regression de Spice.before.shaking, équation 1]{%
+		\includegraphics[scale=0.4]{images/Plot.Predictions_Eq (2).png}%
+	}%
+	\hfill%
+	\subfloat[Regression de Fruity, équation 1]{%
+		\includegraphics[scale=0.4]{images/Plot.Predictions_Eq (2).png}%
+	}%
+	\hfill%
+	\subfloat[Regression de Spice, équation 1]{%
+		\includegraphics[scale=0.4]{images/Plot.Predictions_Eq (2).png}%
+	}%
+	\hfill%
+	\subfloat[Regression de Acidity, équation 1]{%
+		\includegraphics[scale=0.4]{images/Plot.Predictions_Eq (2).png}%
+	}%
+	\caption{Regression linéaire des variables \textit{Goût}, équation 1}
+\end{figure}
+
+On peut également se pencher sur la part que les variables jouent dans la prédiction des deux équations, nous permettant de déterminer les variables les plus pertinentes dans l'analyse des deux thèmes : 
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=0.45]{images/Coeff_var_Eq1.png}
+	\caption{Coefficients de régression linéaire des variables explicatives, équation 1}
+\end{figure}
+
+
+%interprétations
+
+A présent, nous pouvons demander dans quelles dimensions les variables telles que ... sont-elles les plus liées : 
+
+Pour le thème \textit{Odeur} : 
+...
+%interprétations
+
+
+
+Dans cette sous-section, nous allons effectuer les mêmes démarches d'analyse que pour la sous-section précédante en effectuant desormais une \textit{Cross-validation backward} en partant du même modèle, ce qui enlève des composantes au fur et à mesure en testant quelle est l’erreur de prédiction pour chaque modèle testé. Nous pouvons ainsi déterminer le meilleur des ces modèles : 
+
+%interprétations
+
+\newpage
+
+
+
 \section{Annexes}
 %Ci dessous, l'export de code permettant d'afficher la liste des diviseurs de $464280$.
 %\lstinputlisting[language=R, firstline=19, lastline=26]{code/script_projet_VE_COME_NIASSE.R}

@@ -7,7 +7,7 @@ setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R/THEME_225046
 R2_eq1 <- read.csv("R2_Eq1.csv", sep = ";")
 R2_eq2 <- read.csv("R2_Eq2.csv", sep = ";")
 
-View(R2_eq2)
+View(R2_eq1)
 
 ## Extraction des coefficients de regression lineaire des var explicatives
 setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R/THEME_225046/Model_2_2_3_3_2_2/coefficients")
@@ -21,7 +21,11 @@ Beta_eq2_arome <- read.csv("Beta_Eq2_B2.csv", sep = ";")
 Beta_eq2_gout <- read.csv("Beta_Eq2_B3.csv", sep = ";")
 cst_eq2 <- read.csv("Cste_Eq2.csv", sep = ";")
 
-View(Beta_eq2_arome)
+Coeff_var_Eq1 <- rbind(cst_eq1,Beta_eq1_note_gout,Beta_eq1_forme,Beta_eq1_composition)
+Coeff_var_Eq2 <- rbind(cst_eq2,Beta_eq2_arome,Beta_eq2_gout)
+
+# write.table(Coeff_var_Eq1,"Coeff_var_Eq1.csv", sep = ";", row.names = F)
+# write.table(Coeff_var_Eq2,"Coeff_var_Eq2.csv", sep = ";", row.names = F)
 
 ## Extraction des predictions des var des blocs odeur(Eq2) et gout(Eq1)
 setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R/THEME_225046/Model_2_2_3_3_2_2/Prediction")
