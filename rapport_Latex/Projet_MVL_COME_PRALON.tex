@@ -440,13 +440,6 @@ En regardant les tableaux \ref{tab6} et \ref{tab7}, on constate que les valeurs 
 
 \newpage
 
-\section{Conclusion}
-
-Au vu des résultats et des comparaisons faites entre notre fonction $EM$ et celle $normalmixEM$ du package $mixtools$, nous pouvons conclure que notre implémentation fournira de bonnes estimations aussi bien sur des données simulées que sur des données réelles de mélanges à condition bien évidemment de choisir correctement les conditions initiales. Une piste d'amélioration possible de notre fonction serait d'y ajouter une fonctionnalité de recherche automatique de paramètres initiaux. D'après la littérature, plusieurs techniques peuvent être envisagées. Parmi celles qui reviennent le plus souvent, on retrouve la méthode des kmeans.
-
-
-\newpage
-
 \section{THEME sur des données de Vins}
 
 Dans cette section, à l'inverse de la partie précédente, nous nous plaçons dans un cadre non aléatoire avec un modèle à composantes, les données pour l'illustration sont issues de 21 Vins de Loire, ces Vins étant d'écrient par 2 variables qualitatives (Label: Bourgueuil, Chinon, Saumur), (Sol: En1, Env2, Référence, Env4) ainsi que 29 variables quantitatives décrivent des
@@ -527,6 +520,7 @@ Concernant la seconde équation, on se rend compte que les variables \textit{Odo
 	\hfill%
 	\subfloat[Regression de Quality.of.odour, équation 2]{%
 		\includegraphics[scale=0.4]{images/Pred_Eq_Q.png}%
+	}%
 	\caption{Regression linéaire des variables \textit{Odeur}, équation 2}
 \end{figure}
 
@@ -638,6 +632,14 @@ La variation de la valeur moyenne de la $PRESS$ etant très minime quant à la v
 On peut observer que le qualité de prédiction est nettement supérieur pour le modèle à 1 équation. On peut le comprendre avec le fait que certaines variables comme 
 
 \newpage
+
+\section{Conclusion}
+
+Au vu des résultats et des comparaisons faites entre notre fonction $EM$ et celle $normalmixEM$ du package $mixtools$, nous pouvons conclure que notre implémentation fournira de bonnes estimations aussi bien sur des données simulées que sur des données réelles de mélanges à condition bien évidemment de choisir correctement les conditions initiales. Une piste d'amélioration possible de notre fonction serait d'y ajouter une fonctionnalité de recherche automatique de paramètres initiaux. D'après la littérature, plusieurs techniques peuvent être envisagées. Parmi celles qui reviennent le plus souvent, on retrouve la méthode des kmeans.
+
+
+\newpage
+
 
 \section{Annexes}
 \subsection{Script de la fonction $simulation$}

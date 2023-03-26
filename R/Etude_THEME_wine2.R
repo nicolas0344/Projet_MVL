@@ -1,13 +1,13 @@
 ###########################################################################"
 library(readr)
+setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R")
+wine2 <- read.csv("wine2.csv", sep = ";")
 
 ## Extraction des R2 de prediction
 setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R/THEME_225046/Model_2_2_3_3_2_2/R2")
 
 R2_eq1 <- read.csv("R2_Eq1.csv", sep = ";")
 R2_eq2 <- read.csv("R2_Eq2.csv", sep = ";")
-
-View(R2_eq1)
 
 ## Extraction des coefficients de regression lineaire des var explicatives
 setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R/THEME_225046/Model_2_2_3_3_2_2/coefficients")
@@ -33,5 +33,22 @@ setwd("/Users/Nicolas/OneDrive/Documents/Cours S10/AMV/Projet_MVL/R/THEME_225046
 Ypred_eq1 <- read.csv("Ypred_Eq1.csv", sep = ";")
 Ypred_eq2 <- read.csv("Ypred_Eq2.csv", sep = ";")
 
-View(Ypred_eq2)
+correction <- function(a){
+  as.numeric(gsub(",", ".", gsub("\\."," ", a)))
+}
 
+PRESS_eq1 <- matrix(0,ncol = 5)
+colnames(PRESS_eq1) <- colnames(Ypred_eq1)[-1]
+for (j in colnames(PRESS_eq1)){
+  for (i in 1:21){
+    PRESS_eq1[,j] <- PRESS_eq1[,j] + (wine2[i,j] - correction(Ypred_eq1[i,j]))^2
+  }
+}
+
+PRESS_eq2 <- matrix(0,ncol = 3)
+colnames(PRESS_eq2) <- colnames(Ypred_eq2)[-1]
+for (j in colnames(PRESS_eq2)){
+  for (i in 1:21){
+    PRESS_eq2[,j] <- PRESS_eq2[,j] + (wine2[i,j] - correction(Ypred_eq2[i,j]))^2
+  }
+}
