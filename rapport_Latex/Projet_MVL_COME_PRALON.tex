@@ -455,6 +455,8 @@ Précisement on organise les variables quantitatives suivants les blocs de thèm
 	\item \textit{Composition}, ce dernier theme renvoie aux compositions chimiques des fuits utilisées, telles la teneur alcool ou l'astringence : \textit{Astringency,~Alcohol,~Phenolic,~Plante,~Flower}
 \end{itemize} 
 
+\bigskip
+
 On s'interresse, pour ces variables décrivant les Vins, à prédire les variables caractéristiques de l'odeur des Vins ainsi que d'en tirer des composantes explicatives. Puisque ces caractéristiques d'odeur sont à la fois liées aux variables d'arôme et de goût, elle-même dépendante des variables de composition, de note de gout et de caractéristiques de plantes utilisées dans la fermentation des Vins, l'utilisation de THEME est dans ce cas adéquate à cette recherche. Nous obtenons les deux équations thématiques suivantes : 
 
 \begin{figure}[htp] 
@@ -480,51 +482,58 @@ Voici les resultats d'ajustement des prédictions aux données que nous obtenons
 	\caption{R2 de regression linéaire des thèmes Odeur et Goût}
 \end{figure}
 
-On peut constater pour la régression (equation 1) des variables du thème \textit{Goût} sur les composantes des thèmes \textit{Note\_goût,~Plante,~Composition} sont relativement bonnes hormis pour la regression des variables \textit{Fruity.before.shaking} et notamment \textit{Acidity}. Si l'on représente les variables prédites avec celles mesurées on peut se rendre compte que les points sont assez bien répartis autour de la bissectrice mais que certains d'entre eux en sont également assez éloignés. En particulier on observe certains points extrèmes et des points assez éloignés de la bissectrice pour les deux variables \textit{Fruity.before.shaking,~Acidity} : 
+On peut constater pour la régression (equation 1) des variables du thème \textit{Goût} sur les composantes des thèmes \textit{Note\_goût,~Plante,~Composition} sont relativement bonnes hormis pour la regression des variables \textit{Fruity.before.shaking} et notamment \textit{Acidity}. Si l'on représente les variables prédites avec celles mesurées on peut se rendre compte que les points sont assez bien répartis autour de la bissectrice mais que certains d'entre eux en sont également assez éloignés. En particulier on observe certains points extrèmes et des points assez éloignés de la bissectrice pour les deux variables \textit{Fruity.before.shaking,~Acidity} :
 
 \begin{figure}[htp] 
 	\centering
 	\subfloat[Regression de Fruity.before.shaking, équation 1]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_FBS.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_FBS.png}%
 	}%
 	\hfill%
 	\subfloat[Regression de Spice.before.shaking, équation 1]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_SBS.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_SBS.png}%
 	}%
-	\hfill%
+\end{figure}
+
+\begin{figure}[htp] 
+	\centering
 	\subfloat[Regression de Fruity, équation 1]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_F.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_F.png}%
 	}%
 	\hfill%
 	\subfloat[Regression de Spice, équation 1]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_S.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_S.png}%
 	}%
-	\hfill%
-	\subfloat[Regression de Acidity, équation 1]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_A.png}%
-	}%
-	\caption{Regression linéaire des variables \textit{Goût}, équation 1}
 \end{figure}
 
-Concernant la seconde équation, on se rend compte que les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity,~Quality.of.odour} sont très bien prédites, on peut l'observer sur le tableau ?? et les graphiques suivants : 
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=1.2]{images/Pred_Eq_A.png}
+	\caption{Regression de Acidity, équation 1}
+\end{figure}
+
+\newpage
+
+Concernant la seconde équation, on se rend compte que les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity,~Quality.of.odour} sont très bien prédites, on peut l'observer sur l'image 11 et les graphiques suivants : 
 
 \begin{figure}[htp] 
 	\centering
 	\subfloat[Regression de Odor.Intensity.before.shaking, équation 2]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_OIB.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_OIB.png}%
 	}%
 	\hfill%
 	\subfloat[Regression de Odor.Intensity, équation 2]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_OI.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_OI.png}%
 	}%
 	\hfill%
 	\subfloat[Regression de Quality.of.odour, équation 2]{%
-		\includegraphics[scale=0.4]{images/Pred_Eq_Q.png}%
+		\includegraphics[scale=1.2]{images/Pred_Eq_Q.png}%
 	}%
 	\caption{Regression linéaire des variables \textit{Odeur}, équation 2}
 \end{figure}
 
-En complémentaire de l'ajustement de régression des variables des thèmes \textit{Odeur} et \textit{Goût}, on s'intéresse également à la qualité de prédiction que nous comparerons avec le modèle avec \textit{cross-validation~backward}. Pour les deux équations on obtient les résultats suivants : 
+En complémentaire de l'ajustement de régression des variables des thèmes \textit{Odeur} et \textit{Goût}, on s'intéresse également à la qualité de prédiction que nous étudierons avec le modèle avec \textit{cross-validation~backward}. Néanmoins on peut donner les deux érreurs de prédictions pour les deux équations, sur l'ensemble des données : 
+
 
 \begin{figure}[htp] 
 	\centering
@@ -537,24 +546,28 @@ En complémentaire de l'ajustement de régression des variables des thèmes \tex
 	}%
 \end{figure}
 
+\newpage
+
 A présent et afin d'interpréter les prédictions suivant les variables du modèle, on se propose de représenter les graphiques directs et duals des composantes des équations 1 et 2.
+
 
 \begin{figure}[htp] 
 	\centering
-	\includegraphics[scale=0.45]{images/Plot.IndVar_B3_1.2.png}
-	\caption{Représentation direct et dual du thème \textit{Goût} plan 1-2}
+	\subfloat[Représentation direct et dual du thème \textit{Goût} plan 1-2]{%
+		\includegraphics[scale=0.8]{images/Plot.IndVar_B3_1.2.png}%
+	}%
+	\hfill%
+	\subfloat[Représentation direct et dual du thème \textit{Goût} plan 1-3]{%
+		\includegraphics[scale=0.8]{images/Plot.IndVar_B3_1.3.png}%
+	}%
 \end{figure}
 \begin{figure}[htp] 
 	\centering
-	\includegraphics[scale=0.45]{images/Plot.IndVar_B3_1.3.png}
-	\caption{Représentation direct et dual du thème \textit{Goût} plan 1-3}
-\end{figure}
-\begin{figure}[htp] 
-	\centering
-	\includegraphics[scale=0.45]{images/Plot.IndVar_B3_2.3.png}
+	\includegraphics[scale=0.8]{images/Plot.IndVar_B3_2.3.png}
 	\caption{Représentation direct et dual du thème \textit{Goût} plan 2-3}
 \end{figure}
 
+\newpage
 On peut constaster pour les deux premiers axes, que les variables sont assez biens représentées sans pour autant être directement corrélées ou anti-corrélées à l'un ders axes. Toute fois on peut observer que variables \textit{Fruity.before.shaking,~Fruity} et \textit{Spice.before.shaking,~Spice,~Acidity} sont décorélées sur le plan. L'analyse indépendament de l'axe 1 et 2 avec l'axe 3 permet d'observer si les variables sont décorélées sur tous les plans. Ici on s'appeçoit sur le plan 1 et 3 que les variables \textit{Spice,~Fruity} sont anti-corrélées à l'inverse du plan 2 et 3. Les représentations avec l'axe 3 ne sont pas des meilleures, mais elles représentent principalement les informations manquantes sur l'axe 1 et 2, qui sont les points communs et différents des variables. Seule la variable \textit{Acidity} n'a pas l'air d'être mieux représentées à par une composante que par une autre, il faut les 3. On pouvait se douter de ce dernier résultat avec la valeur du $R^2$ de régression.\newline
 
 On peut se pencher sur la part que les variables des thèmes explicatifs jouent dans la prédiction des deux équations, celles-ci nous permettrons de déterminer les variables les plus pertinentes dans l'analyse : 
@@ -580,7 +593,7 @@ On fait de même pour la régression linéaire du thème \textit{Odeur} :
 
 \begin{figure}[htp] 
 	\centering
-	\includegraphics[scale=0.45]{images/Plot.IndVar_B1_1.2.png}
+	\includegraphics[scale=0.8]{images/Plot.IndVar_B1_1.2.png}
 	\caption{Représentation directs et dual du thème \textit{Goût} plan 1-2}
 \end{figure}
 
@@ -607,7 +620,7 @@ Comme entendu, nous allons effectuer les mêmes démarches d'analyse que pour la
 
 \begin{figure}[htp] 
 	\centering
-	\includegraphics[scale=0.45]{images/CV_all.png}
+	\includegraphics[scale=0.52]{images/CV_all.png}
 	\caption{Cross-validation~backward et $R^2$ de chaque modèle, pour chaque variable du thème \textit{Odeur}}
 \end{figure}
 
@@ -619,9 +632,15 @@ Comme entendu, nous allons effectuer les mêmes démarches d'analyse que pour la
 
 A noter que la \textit{Cross-validation~backward} ne test pas tous les modèles, mais réalise un sélection arrière des composantes sélectionnées par Cross-validation, à partir du modèle définie. \newline
 Pour chacune des variables du thème \textit{Odeur}, la valeur de la $PRESS$ des modèles à une allure plutôt décroissante lorsque la qualité d'ajustement de la prédiction des modèles diminue. Il faut donc choisir un compris du modèle à choisir, entre qualité d'ajustement et de prédiction. \newline
-Ici on peut se rendre compte que la valeur de la $PRESS$ de la variable n'a pas la même allure pour chaqune des variables du thème. On par exemple choisir le modèle \textit{223322} avec le meilleur ajustement $R^2$ pour la variable \textit{Quality.of.odour}. Pour tenter d'avoir les meilleurs résultats, on peut choisir un modèle adapter pour chaqune variable. Cependant, par soucis de simplicité et de compréhension dans l'analyse des variables du thème \textit{Odeur}, on décide de choisir un même modèle pour les 3 variables. Ce faisant, on regarde la valeur moyenne des Cross-validation et des $R^2$ (figure ??).\newline
+Ici on peut se rendre compte que la valeur de la $PRESS$ de la variable n'a pas la même allure pour chaqune des variables du thème. On peut par exemple choisir le modèle \textit{223322} avec le meilleur ajustement $R^2$ pour la variable \textit{Quality.of.odour}.\newline
+Pour tenter d'avoir les meilleurs résultats, on peut choisir un modèle adapter pour chaqune variable. Cependant, par soucis de simplicité et de compréhension dans l'analyse des variables du thème \textit{Odeur}, on décide de choisir un même modèle pour les 3 variables. Ce faisant, on regarde la valeur moyenne des Cross-validation et des $R^2$ (figure 19).\newline
 
-La variation de la valeur moyenne de la $PRESS$ etant très minime quant à la variation moyenne du $R^2$, on peut se permettre sans grande perte de qualité de prédiction de considérer les modèles entre \textit{223322} et \textit{220321}. Toute fois on permet beaucoup d'information pour les variables \textit{Quality.of.odour} et \textit{Odor.Intensity.before.shaking}, Afin d'être le plus partimonieux on a décidé de choisir le modèle \textit{220322}. Puisqu'il s'agit du même modèle de composante. on peut comparer la $PRESS$ du modèle à 1 équation et à 2 équation. 
+La variation de la valeur moyenne de la $PRESS$ etant très minime quant à la variation moyenne du $R^2$, on peut se permettre sans grande perte de qualité de prédiction de considérer les modèles entre \textit{223322} et \textit{220321}. Toute fois on pert beaucoup d'information pour les variables \textit{Quality.of.odour} et \textit{Odor.Intensity.before.shaking}, Afin d'être le plus partimonieux on a décidé de choisir le modèle \textit{220322}. \newline
+On s'apperçoit avec la validation croisée, même si il s'agit de variation très faible de la $PRESS$, que ce sont les composantes du thème \textit{Goût} qui sont supprimées au fur et à mesure, on peut le comprendre puisqu'ici les thèmes \textit{Note\_goût,~Plante} et \textit{Composition} sont directement "liés" au thème \textit{Odeur}. On se rend compte également que l'arôme et très pertienant dans l'odeur des Vins de Loire. \newline
+
+Dans l'idée de comparer le modèle sélectionné avec celui sans \textit{Cross-validation,~backward}, on peut comparer la valeur de la $PRESS$ avec l'erreur de prédiction du modèle précédent, sur l'ensemble des données. \newline
+
+Rem : Pour le modèle \textit{223322} sans cross-validation, il s'agit uniquement de l'erreur de prédiction et non de celle déterminé avec validation croisée. Cette valeur nous permet de nous donner une indication de performance entre les deux modèles. 
 
 \begin{figure}[htp] 
 	\centering
@@ -629,7 +648,9 @@ La variation de la valeur moyenne de la $PRESS$ etant très minime quant à la v
 	\caption{Moyenne de la $PRESS$ de chaque variable du thème \textit{Odeur}}
 \end{figure}
 
-On peut observer que le qualité de prédiction est nettement supérieur pour le modèle à 1 équation. On peut le comprendre avec le fait que certaines variables comme 
+On peut observer que le qualité de prédiction est nettement supérieur pour le modèle à 1 équation. Ceci certainement dû au fait qu'on ait choisi un modèle à une équation.\newline
+
+j
 
 \newpage
 
