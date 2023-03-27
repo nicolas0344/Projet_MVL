@@ -594,7 +594,7 @@ On fait de même pour la régression linéaire du thème \textit{Odeur} :
 \begin{figure}[htp] 
 	\centering
 	\includegraphics[scale=0.8]{images/Plot.IndVar_B1_1.2.png}
-	\caption{Représentation directs et dual du thème \textit{Goût} plan 1-2}
+	\caption{Représentation directs et dual du thème \textit{Odeur} plan 1-2}
 \end{figure}
 
 Dans la projection des variables sur le plan dual 1-2, on s'apperçoit que les variables sont extrèmement bien représentées, de plus quelles ont l'air fortement liées aux axes 1 et 2. Plus précisement les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity} sont très liées à l'axe 2, et la variable \textit{Quality.of.odour} à l'axe 1. Toute fois ces variables sont quelque peu expliquées par les axes 1 et 2 respectivement. 
@@ -650,7 +650,45 @@ Rem : Pour le modèle \textit{223322} sans cross-validation, il s'agit uniquemen
 
 On peut observer que le qualité de prédiction est nettement supérieur pour le modèle à 1 équation. Ceci certainement dû au fait qu'on ait choisi un modèle à une équation.\newline
 
-j
+Pour le modèle par \textit{Cross-validation,~backward} on a ainsi obtenu de meilleurs résultats de prédiction et d'ajustement des données. En voici les représentations des prédictions : 
+
+\begin{figure}[htp] 
+	\centering
+	\subfloat[Regression de Odor.Intensity.before.shaking]{%
+		\includegraphics[scale=1.2]{images/Pred_Cross_OIB.png}%
+	}%
+	\hfill%
+	\subfloat[Regression de Odor.Intensity]{%
+		\includegraphics[scale=1.2]{images/Pred_Cross_OI.png}%
+	}%
+	\hfill%
+	\subfloat[Regression de Quality.of.odour]{%
+		\includegraphics[scale=1.2]{images/Pred_Cross_Q.png}%
+	}%
+	\caption{Regression linéaire des variables \textit{Odeur}}
+\end{figure}
+
+\newpage
+
+On constate que la régression du thème \textit{Odeur} est exellente, les points de chaque graphique longuent bien la bissectrice. On pouvait s'attendre à cette qualité en observant la valeur du $R^2$ de la figure 19. \newline 
+Par soucis de lisibilité, on représente seulement le graphique direct et dual du thème \textit{Odeur}, nous permettant dans notre but d'analyser les composantes informatives du thème. 
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=0.8]{images/Plot.IndVar_Cross_B1_1.2.png}
+	\caption{Représentation directs et dual du thème \textit{Odeur} plan 1-2}
+\end{figure}
+
+Et on s'apperçoit qu'il s'agit sans grande surprise d'une représentation direct et dual très similaire à celles vues pour le modèle à 2 équations, les variables \textit{Odor.Intensity.before.shaking} et \textit{Odor.Intensity} étant assez semblables. Il va ainsi s'agir de bien expliquer chacune des variables du thème afin de donner un bon sens aux composantes. \newline 
+On représente ci-dessous les coéfficients de régression linéaire du thème sur l'ensemble des variables des autres thèmes : 
+
+\begin{figure}[htp] 
+	\centering
+	\includegraphics[scale=0.45]{images/Coeff_var_Cross.png}
+	\caption{Coefficients de régression linéaire sur variables explicatives}
+\end{figure}
+
+
 
 \newpage
 
