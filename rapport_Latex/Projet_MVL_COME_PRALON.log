@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  28 MAR 2023 23:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  28 MAR 2023 23:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1617,7 +1617,7 @@ Package rerunfilecheck Info: File `Projet_MVL_COME_PRALON.out' has not changed.
 Here is how much of TeX's memory you used:
  34019 strings out of 475389
  671248 string characters out of 2777000
- 1081448 words of memory out of 3000000
+ 1081459 words of memory out of 3000000
  54567 multiletter control sequences out of 15000+600000
  493126 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
