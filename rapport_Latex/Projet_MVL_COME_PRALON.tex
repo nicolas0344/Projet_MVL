@@ -55,7 +55,7 @@
 	
 
 \section{Introduction}
-Le présent projet s'inscrit dans le cadre de l'unité d'enseignement "HAX006X Modèles à variables latentes". L'objectif est ici d'appliquer sur des données réelles, plusieurs méthodes étudiées durant ce cours. Nous nous intéresserons à deux d'entre elles à savoir la méthode par thèmes et  l'algorithme EM (Expectation-Maximization) conçue par Dempster et al., dont l'article est disponible via la source \cite{article}.
+Le présent projet s'inscrit dans le cadre de l'unité d'enseignement "HAX006X Modèles à variables latentes". L'objectif est ici d'appliquer en deux temps, sur des données réelles plusieurs méthodes étudiées durant ce cours. Nous nous intéresserons à deux d'entre elles à savoir la méthode par thèmes et l'algorithme EM (Expectation-Maximization) conçue par Dempster et al., dont l'article est disponible via la source \cite{article}.
 
 \newpage
 
@@ -442,22 +442,22 @@ En regardant les tableaux \ref{tab6} et \ref{tab7}, on constate que les valeurs 
 
 \section{THEME sur des données de Vins}
 
-Dans cette section, à l'inverse de la partie précédente, nous nous plaçons dans un cadre non aléatoire avec un modèle à composantes, les données pour l'illustration sont issues de 21 Vins de Loire, ces Vins étant d'écrient par 2 variables qualitatives (Label: Bourgueuil, Chinon, Saumur), (Sol: En1, Env2, Référence, Env4) ainsi que 29 variables quantitatives décrivent des
+Dans cette section, à l'inverse de la partie précédente, nous nous plaçons dans un cadre non aléatoire avec un modèle à composantes, les données pour l'illustration sont issues de 21 Vins de Loire, ces Vins étant d'écrient par 2 variables qualitatives (Label: Bourgueuil, Chinon, Saumur), (Sol: En1, Env2, Référence, Env4) ainsi que 29 variables quantitatives décrivant des
 caractéristiques comme l’odeur, le goût des Vins. \newline
 Précisement on organise les variables quantitatives suivants les blocs de thèmes suivants : odeur, arôme, goût, note de goût, plante et composition (chimique).\newline
 
 \begin{itemize}
 	\item \textit{Odeur}, qui comprend les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity,~Quality.of.odour} décrivant les caractéristiques olfactives des Vins. 
-	\item \textit{Arome}, qui renvoie aux variables \textit{Aroma.quality.before.shaking,~Aroma.intensity,~Aroma.persistency,~Aroma.quality} faisant référence aux caractéristiques sensorielles des Vins telles que l'intensité, la qualité, la précence des arômes. 
-	\item \textit{Goût}, comprenant les variables renvoyant au goût fuité, amère, acide ou épicé des Vins : \textit{Fruity.before.shaking,~Fruity,~Acidity,~Spice.before.shaking,~Spice,~Bitterness}
+	\item \textit{Arome}, qui renvoie aux variables \textit{Aroma.quality.before.shaking,~Aroma.intensity,~Aroma.persistency}, \textit{Aroma.quality} faisant référence aux caractéristiques sensorielles des arômes des Vins telles que l'intensité, la qualité, la précence des arômes. 
+	\item \textit{Goût}, comprenant les variables renvoyant au goût fuité, amère, acide ou épicé des Vins : \textit{Fruity.before.shaking}, \textit{Fruity,~Acidity,~Spice.before.shaking,~Spice,~Bitterness}
 	\item \textit{Note\_goût}, renvoyant aux notes / caractéristiques gustatives des Vins, le thème comprend les variables commes l'équilibre des saveurs \textit{Balance,~Smooth,~Attack.intensity,~Intensity,~Harmony,~Typical}
 	\item \textit{Plante}, ce thème correspond à des caractères de plantes utilisées dans la fermentation des Vins : \textit{Flower.before.shaking,~Visual.intensity,~Nuance,~Surface.feeling}
-	\item \textit{Composition}, ce dernier theme renvoie aux compositions chimiques des fuits utilisées, telles la teneur alcool ou l'astringence : \textit{Astringency,~Alcohol,~Phenolic,~Plante,~Flower}
+	\item \textit{Composition}, ce dernier theme renvoie aux compositions chimiques des vins, telles la teneur alcool ou l'astringence : \textit{Astringency,~Alcohol,~Phenolic,~Plante,~Flower}
 \end{itemize} 
 
 \bigskip
 
-On s'interresse, pour ces variables décrivant les Vins, à prédire les variables caractéristiques de l'odeur des Vins ainsi que d'en tirer des composantes explicatives. Puisque ces caractéristiques d'odeur sont à la fois liées aux variables d'arôme et de goût, elle-même dépendante des variables de composition, de note de gout et de caractéristiques de plantes utilisées dans la fermentation des Vins, l'utilisation de THEME est dans ce cas adéquate à cette recherche. Nous obtenons les deux équations thématiques suivantes : 
+On s'interresse, pour ces variables décrivant les vins, à prédire les variables caractéristiques olfactives ainsi que d'en tirer des composantes explicatives. Puisque ces caractéristiques d'odeur sont à la fois liées aux variables d'arôme et de goût, elle-même dépendante des variables de composition, de note de gout et de caractéristiques de plantes utilisées dans la fermentation des vins, l'utilisation de THEME est dans ce cas adéquate à cette recherche. Nous obtenons les deux équations thématiques suivantes : 
 
 \begin{figure}[htp] 
 	\centering
@@ -466,7 +466,7 @@ On s'interresse, pour ces variables décrivant les Vins, à prédire les variabl
 \end{figure}
 
 
-Dans un premier temps, nous avons décidé d'appliquer THEME sans \textit{cross-validation~backward} en partant du modèle avec 2 composantes pour le thème \textit{Odeur}, 2 composantes pour le thème \textit{Arôme}, 3 composantes pour le thème \textit{Goût}, 3 composantes pour le thème \textit{Note\_goût}, 2 composantes pour le thème \textit{Plante} et 2 composantes pour le thème \textit{Composition}. Puisque que l'on cherche à analyser les caractéristiques des odeurs des Vins, on ne prend pas en compte les variables qualitatives de \textit{Sol} et \textit{Env}, de plus la variable \textit{Overall.quality} ne rentrant dans aucune thèmatique. \newline
+Dans un premier temps, nous avons décidé d'appliquer THEME sans \textit{cross-validation~backward} en partant du modèle avec 2 composantes pour le thème \textit{Odeur}, 2 composantes pour le thème \textit{Arôme}, 3 composantes pour le thème \textit{Goût}, 3 composantes pour le thème \textit{Note\_goût}, 2 composantes pour le thème \textit{Plante} et 2 composantes pour le thème \textit{Composition}. Puisque que l'on cherche à analyser les caractéristiques des odeurs des vins, on ne prend pas en compte les variables qualitatives de \textit{Sol} et \textit{Env}, de plus la variable \textit{Overall.quality} ne rentre dans aucune thèmatique. \newline
 
 Voici les resultats d'ajustement des prédictions aux données que nous obtenons pour les deux équations : 
 
@@ -482,7 +482,7 @@ Voici les resultats d'ajustement des prédictions aux données que nous obtenons
 	\caption{R2 de regression linéaire des thèmes Odeur et Goût}
 \end{figure}
 
-On peut constater pour la régression (equation 1) des variables du thème \textit{Goût} sur les composantes des thèmes \textit{Note\_goût,~Plante,~Composition} sont relativement bonnes hormis pour la regression des variables \textit{Fruity.before.shaking} et notamment \textit{Acidity}. Si l'on représente les variables prédites avec celles mesurées on peut se rendre compte que les points sont assez bien répartis autour de la bissectrice mais que certains d'entre eux en sont également assez éloignés. En particulier on observe certains points extrèmes et des points assez éloignés de la bissectrice pour les deux variables \textit{Fruity.before.shaking,~Acidity} :
+On peut constater pour la régression (equation 1) des variables du thème \textit{Goût} sur les composantes des thèmes \textit{Note\_goût,~Plante,~Composition} qu'elles sont relativement bonnes hormis pour la regression des variables \textit{Fruity.before.shaking} et notamment \textit{Acidity}. Si l'on représente les variables prédites avec celles mesurées on peut se rendre compte que les points sont assez bien répartis autour de la bissectrice mais que certains d'entre eux en sont également assez éloignés. En particulier on observe certains points extrèmes et des points assez éloignés de la bissectrice pour les deux variables \textit{Fruity.before.shaking,~Acidity} :
 
 \begin{figure}[htp] 
 	\centering
@@ -548,7 +548,7 @@ En complémentaire de l'ajustement de régression des variables des thèmes \tex
 
 \newpage
 
-A présent et afin d'interpréter les prédictions suivant les variables du modèle, on se propose de représenter les graphiques directs et duals des composantes des équations 1 et 2.
+A présent et afin d'interpréter les prédictions suivant les variables du modèle, on se propose de représenter les graphiques directs et duaux des composantes des équations 1 et 2.
 
 
 \begin{figure}[htp] 
@@ -568,7 +568,7 @@ A présent et afin d'interpréter les prédictions suivant les variables du mod�
 \end{figure}
 
 \newpage
-On peut constaster pour les deux premiers axes, que les variables sont assez biens représentées sans pour autant être directement corrélées ou anti-corrélées à l'un ders axes. Toute fois on peut observer que variables \textit{Fruity.before.shaking,~Fruity} et \textit{Spice.before.shaking,~Spice,~Acidity} sont décorélées sur le plan. L'analyse indépendament de l'axe 1 et 2 avec l'axe 3 permet d'observer si les variables sont décorélées sur tous les plans. Ici on s'appeçoit sur le plan 1 et 3 que les variables \textit{Spice,~Fruity} sont anti-corrélées à l'inverse du plan 2 et 3. Les représentations avec l'axe 3 ne sont pas des meilleures, mais elles représentent principalement les informations manquantes sur l'axe 1 et 2, qui sont les points communs et différents des variables. Seule la variable \textit{Acidity} n'a pas l'air d'être mieux représentées à par une composante que par une autre, il faut les 3. On pouvait se douter de ce dernier résultat avec la valeur du $R^2$ de régression.\newline
+On peut constaster pour les deux premiers axes, que les variables sont assez bien représentées sans pour autant être directement corrélées ou anti-corrélées à l'un des axes. Toute fois on peut observer que les variables \textit{Fruity.before.shaking,~Fruity} et \textit{Spice.before.shaking,~Spice,~Acidity} sont décorélées sur le plan. L'analyse indépendante de l'axe 1 et 2 avec l'axe 3 permet d'observer si les variables sont décorélées sur tous les plans. Ici on s'appeçoit sur le plan 1 et 3 que les variables \textit{Spice,~Fruity} sont anti-corrélées à l'inverse du plan 2 et 3. Les représentations avec l'axe 3 ne sont pas des meilleures, mais elles représentent principalement les informations manquantes sur l'axe 1 et 2, qui sont les points communs et différents des variables. Seule la variable \textit{Acidity} n'a pas l'air d'être mieux représentées à par une composante que par une autre, il faut les 3. On pouvait se douter de ce dernier résultat avec la valeur du $R^2$ de régression.\newline
 
 On peut se pencher sur la part que les variables des thèmes explicatifs jouent dans la prédiction des deux équations, celles-ci nous permettrons de déterminer les variables les plus pertinentes dans l'analyse : 
 
@@ -583,26 +583,27 @@ Nous avons surligné en jaune les coefficients en valeur absolue les plus élev�
 
 \begin{itemize}
 	\item Pour le thème \textit{Note\_goût}, ce sont les variables \textit{Balance,~Bitterness} qui ont le plus d'impact sur les variables de Fruit.
-	\item Pour le thème \textit{Plante}, c'est la variable \textit{Flower.before.shaking} qui a le plus d'impact, et surtout les caractères épicés du thème \textit{Goût} cette variable renseigne sur les plantes utilisées dans la fermentation des Vins, il doit donc s'agire d'épices qui ont été ajoutées dans les Vins. Le caractère d'intensité va également marqué les variables \textit{Spice.before.shaking,~Spice}.
-	\item Pour le thème \textit{Composition}, l'Alcool va jouer un rôle dans la régression des variables de fuits et d'acidité. 
+	\item Pour le thème \textit{Plante}, c'est la variable \textit{Flower.before.shaking} qui a le plus d'impact, et surtout les caractères épicés du thème \textit{Goût}, cette variable renseigne sur les plantes utilisées dans la fermentation des vins, il doit donc s'agir d'épices qui ont été ajoutées dans les vins. Le caractère d'intensité va également marquer les variables \textit{Spice.before.shaking,~Spice}.
+	\item Pour le thème \textit{Composition}, l'Alcool va jouer un rôle dans la régression des variables de fuits et de la variable d'acidité. 
 \end{itemize}
+\bigskip
 
-On retrouve avec l'analyse des coefficients les points distincts sur le plan 1-2 entre les variables \textit{Fruity.before.shaking,~Fruity} expliquées par les variables \textit{Balance,~Bitterness}, et les variables \textit{Spice.before.shaking,~Spice,~Acidity} expliquées par \textit{Flower.before.shaking,~Intensity}. On retrouve également un caractère commun à l'ensemble des variables, comme on a pû le constater sur les plans 1-3 et 2-3, qui est ici marqué par la variables \textit{Flower} et dans une moindre mesure \textit{Flower.before.shaking}. \newline
+On retrouve avec cette analyse des coefficients les points distincts, observables sur le plan 1-2, entre les variables \textit{Fruity.before.shaking,~Fruity} expliquées par les variables \textit{Balance,~Bitterness}, et les variables \textit{Spice.before.shaking,~Spice,~Acidity} expliquées par \textit{Flower.before.shaking,~Intensity}. On retrouve également un caractère commun à l'ensemble des variables, comme on a pu le constater sur les plans 1-3 et 2-3, qui est ici marqué par la variable \textit{Flower} et dans une moindre mesure \textit{Flower.before.shaking}. \newline
 
 On fait de même pour la régression linéaire du thème \textit{Odeur} : 
 
 \begin{figure}[htp] 
 	\centering
 	\includegraphics[scale=0.8]{images/Plot.IndVar_B1_1.2.png}
-	\caption{Représentation directs et dual du thème \textit{Odeur} plan 1-2}
+	\caption{Représentation direct et dual du thème \textit{Odeur} plan 1-2}
 \end{figure}
 
-Dans la projection des variables sur le plan dual 1-2, on s'apperçoit que les variables sont extrèmement bien représentées, de plus quelles ont l'air fortement liées aux axes 1 et 2. Plus précisement les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity} sont très liées à l'axe 2, et la variable \textit{Quality.of.odour} à l'axe 1. Toute fois ces variables sont quelque peu expliquées par les axes 1 et 2 respectivement. 
+Dans la projection des variables sur le plan dual 1-2, on s'apperçoit que les variables sont extrèmement bien représentées, de plus qu'elles ont l'air fortement liées aux axes 1 et 2. Plus précisement les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity} sont très liées à l'axe 2, et la variable \textit{Quality.of.odour} à l'axe 1. Toute fois ces variables sont quelque peu expliquées par les axes 1 et 2 respectivement. 
 Leurs représentations nous informe que les caractères de qualité et d'intensité sont décorélées sur le plan, ce qui peut se comprendre.
 On peut donc donner un sens aux deux composantes, l'axe 1 representerait une variable de qualité du Vins, et l'axe 2 représenterait un caractère d'intensité arômatique. \newline
-Leurs représentations sont bonnes, car les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity} sont relativement identiques. 
+Leurs représentations sont bonnes, car les variables \textit{Odor.Intensity.before.shaking,~Odor.Intensity} sont relativement identiques, et le thème ne comporte que ces 3 variables.
 
-Afin de mieux comprendre cette composantes, l'analyse des coefficients de régression linéaire sur les composantes explicatives nous permettra de déterminer les variables à les plus impactantes dans les prédictions. \newline
+Afin de mieux comprendre ces composantes, l'analyse des coefficients de régression linéaire sur les composantes explicatives nous permettra de déterminer les variables les plus impactantes. \newline
 
 \begin{figure}[htp] 
 	\centering
@@ -611,12 +612,12 @@ Afin de mieux comprendre cette composantes, l'analyse des coefficients de régre
 \end{figure}
 
 
-On s'appercoit que ce sont les mêmes variables explicatives qui rentrent en jeu dans l'analyse de \textit{Odor.Intensity.before.shaking,~Odor.Intensity} principalement liées aux variables du thème \textit{Arôme}. Concernant la variable \textit{Quality.of.odour} elle est expliquée, comme on peut l'attendre, par les variables du thème \textit{Goût}, mais aussi par la variable de qualité et de presitence du thème \textit{Arôme}. On peut alors expliquer distinctement les composantes obtenues avec ces deux thèmes. \newline
+On s'appercoit que ce sont les mêmes variables explicatives qui rentrent en jeu dans l'analyse de \textit{Odor.Intensity.before.shaking}, \textit{Odor.Intensity} principalement liées aux variables du thème \textit{Arôme}. Concernant la variable \textit{Quality.of.odour} elle est expliquée, comme on peut l'attendre, par les variables du thème \textit{Goût}, mais aussi par la variable de qualité et de persitence dans le thème \textit{Arôme}. Les deux thèmes nous permettent alors expliquer distinctement les composantes obtenues. \newline
 
 \bigskip
 \bigskip
 
-Comme entendu, nous allons effectuer les mêmes démarches d'analyse que pour la sous-section précédante en effectuant desormais une \textit{Cross-validation~backward} en partant du même modèle, ce qui enlève des composantes au fur et à mesure en testant quelle est l’erreur de prédiction pour chaque modèle testé. Nous pouvons ainsi déterminer le meilleur des ces modèles. Par raison de temps de calcul nous avons décider de modifier les équations thématiques, ce qui nous permettra également de comparer le modèle précédent avec le modèle à une équation, dont toutes les variables sont explicatives du thème \textit{Odeur}. Nous conservons le même nombre de composantes pour chacun des thèmes, et nous obtenons par \textit{Cross-validation~backward} les résultats suivants : 
+Comme entendu, nous allons effectuer les mêmes démarches d'analyse que jusqu'à présent en effectuant desormais une \textit{Cross-validation~backward} en partant du même modèle. La sélection arrière nous permet de supprimer des composantes au fur et à mesure, en testant quelle est l’erreur de prédiction pour chaque modèle testé. Nous pouvons ainsi déterminer le meilleur de ces modèles. Par raison de temps de calcul nous avons décider de modifier les équations thématiques, ce qui nous permettra également de comparer le modèle précédent avec le modèle à une équation, dont toutes les variables sont explicatives du thème \textit{Odeur}. Nous conservons le même nombre de composantes pour chacun des thèmes, et nous obtenons par \textit{Cross-validation~backward} les résultats suivants : 
 
 \begin{figure}[htp] 
 	\centering
@@ -631,12 +632,12 @@ Comme entendu, nous allons effectuer les mêmes démarches d'analyse que pour la
 \end{figure}
 
 A noter que la \textit{Cross-validation~backward} ne test pas tous les modèles, mais réalise un sélection arrière des composantes sélectionnées par Cross-validation, à partir du modèle définie. \newline
-Pour chacune des variables du thème \textit{Odeur}, la valeur de la $PRESS$ des modèles à une allure plutôt décroissante lorsque la qualité d'ajustement de la prédiction des modèles diminue. Il faut donc choisir un compris du modèle à choisir, entre qualité d'ajustement et de prédiction. \newline
-Ici on peut se rendre compte que la valeur de la $PRESS$ de la variable n'a pas la même allure pour chaqune des variables du thème. On peut par exemple choisir le modèle \textit{223322} avec le meilleur ajustement $R^2$ pour la variable \textit{Quality.of.odour}.\newline
-Pour tenter d'avoir les meilleurs résultats, on peut choisir un modèle adapter pour chaqune variable. Cependant, par soucis de simplicité et de compréhension dans l'analyse des variables du thème \textit{Odeur}, on décide de choisir un même modèle pour les 3 variables. Ce faisant, on regarde la valeur moyenne des Cross-validation et des $R^2$ (figure 19).\newline
+Pour chacune des variables du thème \textit{Odeur}, la valeur de la $PRESS$ des modèles à une allure plutôt décroissante lorsque la qualité d'ajustement de la prédiction des modèles diminue. Il faut donc choisir un compris du modèle, entre qualité d'ajustement et prédiction. \newline
+Ici on peut se rendre compte que la valeur de la $PRESS$ de la variable n'a pas la même allure pour chacune des variables du thème. On peut par exemple choisir le modèle \textit{223322} avec le meilleur ajustement $R^2$ pour la variable \textit{Quality.of.odour}.\newline
+Pour tenter d'avoir les meilleurs résultats, on peut choisir un modèle adapté pour chaque variable. Cependant, par soucis de simplicité et de compréhension dans l'analyse des variables du thème \textit{Odeur}, on décide de choisir un même modèle pour les 3 variables. Ce faisant, on regarde la valeur moyenne des Cross-validation et des $R^2$ (figure 19).\newline
 
-La variation de la valeur moyenne de la $PRESS$ etant très minime quant à la variation moyenne du $R^2$, on peut se permettre sans grande perte de qualité de prédiction de considérer les modèles entre \textit{223322} et \textit{220321}. Toute fois on pert beaucoup d'information pour les variables \textit{Quality.of.odour} et \textit{Odor.Intensity.before.shaking}, Afin d'être le plus partimonieux on a décidé de choisir le modèle \textit{220322}. \newline
-On s'apperçoit avec la validation croisée, même si il s'agit de variation très faible de la $PRESS$, que ce sont les composantes du thème \textit{Goût} qui sont supprimées au fur et à mesure, on peut le comprendre puisqu'ici les thèmes \textit{Note\_goût,~Plante} et \textit{Composition} sont directement "liés" au thème \textit{Odeur}. On se rend compte également que l'arôme et très pertienant dans l'odeur des Vins de Loire. \newline
+La variation de la valeur moyenne de la $PRESS$ etant très minime quant à la variation moyenne du $R^2$, on peut se permettre sans grande perte de qualité de prédiction de considérer les modèles entre \textit{223322} et \textit{220321}. Toute fois, dans ce dernier modèle on pert beaucoup d'information pour les variables \textit{Quality.of.odour} et \textit{Odor.Intensity.before.shaking}. Afin d'être le plus partimonieux on a décidé de choisir le modèle \textit{220322}. \newline
+On s'apperçoit avec la validation croisée, même si il s'agit de variation très faible de la $PRESS$, que ce sont les composantes du thème \textit{Goût} qui sont supprimées au fur et à mesure, on peut le comprendre puisqu'ici les thèmes \textit{Note\_goût,~Plante} et \textit{Composition} sont directement "liés" au thème \textit{Odeur}. On se rend compte également que l'arôme et très pertinant dans l'odeur des Vins de Loire. \newline
 
 Dans l'idée de comparer le modèle sélectionné avec celui sans \textit{Cross-validation,~backward}, on peut comparer la valeur de la $PRESS$ avec l'erreur de prédiction du modèle précédent, sur l'ensemble des données. \newline
 
@@ -679,7 +680,7 @@ Par soucis de lisibilité, on représente seulement le graphique direct et dual 
 	\caption{Représentation directs et dual du thème \textit{Odeur} plan 1-2}
 \end{figure}
 
-Et on s'apperçoit qu'il s'agit sans grande surprise d'une représentation direct et dual très similaire à celles vues pour le modèle à 2 équations, les variables \textit{Odor.Intensity.before.shaking} et \textit{Odor.Intensity} étant assez semblables. Il va ainsi s'agir de bien expliquer chacune des variables du thème afin de donner un bon sens aux composantes. \newline 
+Et on s'apperçoit qu'il s'agit sans grande surprise d'une représentation direct et dual très similaire à celles vue pour le modèle à 2 équations, les variables \textit{Odor.Intensity.before.shaking} et \textit{Odor.Intensity} étant assez semblables. Il va ainsi s'agir de bien expliquer chacune des variables du thème afin de donner un bon sens aux composantes. \newline 
 On représente ci-dessous les coéfficients de régression linéaire du thème sur l'ensemble des variables des autres thèmes : 
 
 \begin{figure}[htp] 
@@ -688,7 +689,16 @@ On représente ci-dessous les coéfficients de régression linéaire du thème s
 	\caption{Coefficients de régression linéaire sur variables explicatives}
 \end{figure}
 
+\begin{itemize}
+	\item Pour la variable \textit{Odor.Intensity.before.shaking} ce sont l'ensemble des variables du thème \textit{Arôme} qui jouent un rôle prédominant dans la régression, nottament \textit{Aroma.Intensity}. Pour le thème \textit{Note\_goût}, il s'agit des variables \textit{Attack.intensity,~Balance,~Typical} qui impactent le plus la régression, de même pour \textit{Flower.before.shaking} pour le thème \textit{Plante}, et les variables \textit{Astringency,~Alcohol,~Phenolic} pour le thème de composition. 
+	\item Concernant la variable \textit{Odor.Intensity} (sans brassage) les variables ayant le plus d'impactent sont également celles qui rentrent en compte pour la variable \textit{Odor.Intensity.before.shaking} mais à quelques différences près, notamment avec le thème \textit{Composition} avec les variables \textit{Flower,~Plante}.
+	\item En fin pour la variable \textit{Quality.of.odour} le thème \textit{Arôme} est toujours très présent, mais la prise en compte de certaines notes d'équilibres avec la variable \textit{Balance}, d'intensités culinéaires \textit{Attack.intensity} et des plantes utilisées dans la fermentation des Vins. 
+\end{itemize}
 
+\bigskip
+
+Au regard des varaibles rentrant en jeu dans la régression du thème \textit{Odeur}, mais si il s'agit principalement des mêmes variables, on constate pour le signe, qu'elles impactent différement la variable \textit{Quality.of.odour} avec les \textit{Odor.Intensity.before.shaking} et \textit{Odor.Intensity}. Ce qui est nous était déjà indiqué sur la représentation dual. \newline
+Pour finir et donner un sens aux variables et composantes, on peut penser dire que la différence entre \textit{Odor.Intensity.before.shaking} et \textit{Odor.Intensity} vient du brassage du Vins, ce qui permet en bien ou en mal de diminuer l'effet de certaines variables sur l'odeur des Vins, notamment l'alcool et de retenir un peu plus certains caractères des plantes ajoutées dans les Vins. Concernant la variable \textit{Quality.of.odour}, la qualité des Vins est marqué par ces plantes ajoutées, l'équilibre des ingrédients et l'intensité olfactive et gustative. 
 
 \newpage
 
