@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  24 MAR 2023 19:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  28 MAR 2023 23:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1223,23 +1223,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--124
  []
 
 [4]
-<images/dens_sim.png, id=176, 545.78906pt x 384.6872pt>
+<images/dens_sim.png, id=181, 545.78906pt x 384.6872pt>
 File: images/dens_sim.png Graphic file (type png)
 <use images/dens_sim.png>
 Package pdftex.def Info: images/dens_sim.png  used on input line 147.
 (pdftex.def)             Requested size: 272.89386pt x 192.34312pt.
-<images/res_sim.png, id=182, 277.4114pt x 56.08453pt>
+<images/res_sim.png, id=187, 277.4114pt x 56.08453pt>
 File: images/res_sim.png Graphic file (type png)
 <use images/res_sim.png>
 Package pdftex.def Info: images/res_sim.png  used on input line 188.
 (pdftex.def)             Requested size: 249.66795pt x 50.47559pt.
  [5 <./images/dens_sim.png>]
-<images/dens_sim2.png, id=195, 549.55313pt x 384.6872pt>
+<images/dens_sim2.png, id=200, 549.55313pt x 384.6872pt>
 File: images/dens_sim2.png Graphic file (type png)
 <use images/dens_sim2.png>
 Package pdftex.def Info: images/dens_sim2.png  used on input line 208.
 (pdftex.def)             Requested size: 274.7759pt x 192.34312pt.
-<images/res_sim2.png, id=201, 280.42265pt x 91.09032pt>
+<images/res_sim2.png, id=206, 280.42265pt x 91.09032pt>
 File: images/res_sim2.png Graphic file (type png)
 <use images/res_sim2.png>
 Package pdftex.def Info: images/res_sim2.png  used on input line 257.
@@ -1262,47 +1262,304 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 271.
 
 [6 <./images/res_sim.png> <./images/dens_sim2.png>]
-<images/dataset.png, id=213, 501.74953pt x 94.47797pt>
+<images/dataset.png, id=218, 501.74953pt x 94.47797pt>
 File: images/dataset.png Graphic file (type png)
 <use images/dataset.png>
 Package pdftex.def Info: images/dataset.png  used on input line 277.
 (pdftex.def)             Requested size: 351.22226pt x 66.13411pt.
  [7 <./images/res_sim2.png> <./images/dataset.png>]
-<images/realDataDensEst.png, id=224, 549.55313pt x 384.6872pt>
+<images/realDataDensEst.png, id=229, 549.55313pt x 384.6872pt>
 File: images/realDataDensEst.png Graphic file (type png)
 <use images/realDataDensEst.png>
 Package pdftex.def Info: images/realDataDensEst.png  used on input line 288.
 (pdftex.def)             Requested size: 274.7759pt x 192.34312pt.
-<images/extremumLoc.png, id=227, 499.8675pt x 290.58563pt>
+<images/extremumLoc.png, id=232, 499.8675pt x 290.58563pt>
 File: images/extremumLoc.png Graphic file (type png)
 <use images/extremumLoc.png>
 Package pdftex.def Info: images/extremumLoc.png  used on input line 308.
 (pdftex.def)             Requested size: 299.9228pt x 174.35272pt.
  [8 <./images/realDataDensEst.png> <./images/extremumLoc.png>]
-<images/paramEstEM.png, id=240, 278.91704pt x 71.8936pt>
+<images/paramEstEM.png, id=245, 278.91704pt x 71.8936pt>
 File: images/paramEstEM.png Graphic file (type png)
 <use images/paramEstEM.png>
 Package pdftex.def Info: images/paramEstEM.png  used on input line 362.
 (pdftex.def)             Requested size: 223.13393pt x 57.51494pt.
  [9 <./images/paramEstEM.png>]
-<images/paramEstLib.png, id=251, 373.395pt x 74.52844pt>
+<images/paramEstLib.png, id=256, 373.395pt x 74.52844pt>
 File: images/paramEstLib.png Graphic file (type png)
 <use images/paramEstLib.png>
 Package pdftex.def Info: images/paramEstLib.png  used on input line 390.
 (pdftex.def)             Requested size: 298.7164pt x 59.62282pt.
- [10 <./images/paramEstLib.png>] [11]
+ [10 <./images/paramEstLib.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
+
+ []
+
+
+Overfull \hbox (4.43439pt too wide) in paragraph at lines 451--452
+[]\T1/cmr/m/it/10 Arome\T1/cmr/m/n/10 , qui ren-voie aux va-riables \T1/cmr/m/i
+t/10 Aroma.quality.before.shaking, Aroma.intensity, Aroma.persistency\T1/cmr/m/
+n/10 ,
+ []
+
+
+Overfull \hbox (40.24538pt too wide) in paragraph at lines 452--453
+[]\T1/cmr/m/it/10 Goût\T1/cmr/m/n/10 , com-pre-nant les va-riables ren-voyant a
+u goût fruité, amer, acide ou épicé des Vins : \T1/cmr/m/it/10 Fruity.before.sh
+aking\T1/cmr/m/n/10 ,
+ []
+
+<images/Eq_THEME.png, id=266, 823.57687pt x 437.38406pt>
+File: images/Eq_THEME.png Graphic file (type png)
+<use images/Eq_THEME.png>
+Package pdftex.def Info: images/Eq_THEME.png  used on input line 464.
+(pdftex.def)             Requested size: 370.60617pt x 196.821pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
+
+ []
+
+<images/R2_regression_Eq1.png, id=267, 804.00375pt x 54.9553pt>
+File: images/R2_regression_Eq1.png Graphic file (type png)
+<use images/R2_regression_Eq1.png>
+Package pdftex.def Info: images/R2_regression_Eq1.png  used on input line 477.
+(pdftex.def)             Requested size: 321.59581pt x 21.98172pt.
+<images/R2_regression_Eq2.png, id=268, 552.56438pt x 47.42719pt>
+File: images/R2_regression_Eq2.png Graphic file (type png)
+<use images/R2_regression_Eq2.png>
+Package pdftex.def Info: images/R2_regression_Eq2.png  used on input line 481.
+(pdftex.def)             Requested size: 221.02182pt x 18.97054pt.
+[11 <./images/Eq_THEME.png>]
+<images/Pred_Eq_FBS.png, id=275, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_FBS.png Graphic file (type png)
+<use images/Pred_Eq_FBS.png>
+Package pdftex.def Info: images/Pred_Eq_FBS.png  used on input line 491.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Eq_SBS.png, id=276, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_SBS.png Graphic file (type png)
+<use images/Pred_Eq_SBS.png>
+Package pdftex.def Info: images/Pred_Eq_SBS.png  used on input line 495.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Eq_F.png, id=277, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_F.png Graphic file (type png)
+<use images/Pred_Eq_F.png>
+Package pdftex.def Info: images/Pred_Eq_F.png  used on input line 502.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Eq_S.png, id=278, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_S.png Graphic file (type png)
+<use images/Pred_Eq_S.png>
+Package pdftex.def Info: images/Pred_Eq_S.png  used on input line 506.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Eq_A.png, id=279, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_A.png Graphic file (type png)
+<use images/Pred_Eq_A.png>
+Package pdftex.def Info: images/Pred_Eq_A.png  used on input line 511.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+ [12 <./images/R2_regression_Eq1.png> <./images/R2_regression_Eq2.png> <./image
+s/Pred_Eq_FBS.png> <./images/Pred_Eq_SBS.png>]
+[13
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.12.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.515 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.12.
+2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.515 \newpage
+               <./images/Pred_Eq_F.png> <./images/Pred_Eq_S.png> <./images/Pred
+_Eq_A.png>]
+Overfull \hbox (59.02005pt too wide) in paragraph at lines 517--518
+[]\T1/cmr/m/n/10 Concernant la se-conde équa-tion, on se rend compte que les va
+-riables \T1/cmr/m/it/10 Odor.Intensity.before.shaking, Odor.Intensity, Qua-
+ []
+
+<images/Pred_Eq_OIB.png, id=304, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_OIB.png Graphic file (type png)
+<use images/Pred_Eq_OIB.png>
+Package pdftex.def Info: images/Pred_Eq_OIB.png  used on input line 523.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Eq_OI.png, id=305, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_OI.png Graphic file (type png)
+<use images/Pred_Eq_OI.png>
+Package pdftex.def Info: images/Pred_Eq_OI.png  used on input line 527.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Eq_Q.png, id=306, 146.949pt x 165.0165pt>
+File: images/Pred_Eq_Q.png Graphic file (type png)
+<use images/Pred_Eq_Q.png>
+Package pdftex.def Info: images/Pred_Eq_Q.png  used on input line 531.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/PRESS_eq1.png, id=307, 685.8122pt x 55.70813pt>
+File: images/PRESS_eq1.png Graphic file (type png)
+<use images/PRESS_eq1.png>
+Package pdftex.def Info: images/PRESS_eq1.png  used on input line 542.
+(pdftex.def)             Requested size: 274.32002pt x 22.28284pt.
+<images/PRESS_eq2.png, id=308, 584.93532pt x 54.2025pt>
+File: images/PRESS_eq2.png Graphic file (type png)
+<use images/PRESS_eq2.png>
+Package pdftex.def Info: images/PRESS_eq2.png  used on input line 546.
+(pdftex.def)             Requested size: 233.96997pt x 21.6806pt.
+[14 <./images/Pred_Eq_OIB.png> <./images/Pred_Eq_OI.png> <./images/Pred_Eq_Q.pn
+g (PNG copy)>]
+<images/Plot.IndVar_B3_1.2.png, id=320, 455.24077pt x 227.59027pt>
+File: images/Plot.IndVar_B3_1.2.png Graphic file (type png)
+<use images/Plot.IndVar_B3_1.2.png>
+Package pdftex.def Info: images/Plot.IndVar_B3_1.2.png  used on input line 558.
+
+(pdftex.def)             Requested size: 364.1931pt x 182.07245pt.
+<images/Plot.IndVar_B3_1.3.png, id=321, 455.24077pt x 227.59027pt>
+File: images/Plot.IndVar_B3_1.3.png Graphic file (type png)
+<use images/Plot.IndVar_B3_1.3.png>
+Package pdftex.def Info: images/Plot.IndVar_B3_1.3.png  used on input line 562.
+
+(pdftex.def)             Requested size: 364.1931pt x 182.07245pt.
+<images/Plot.IndVar_B3_2.3.png, id=322, 455.24077pt x 227.59027pt>
+File: images/Plot.IndVar_B3_2.3.png Graphic file (type png)
+<use images/Plot.IndVar_B3_2.3.png>
+Package pdftex.def Info: images/Plot.IndVar_B3_2.3.png  used on input line 566.
+
+(pdftex.def)             Requested size: 364.1931pt x 182.07245pt.
+ [15
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.14.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.570 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.14.
+2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.570 \newpage
+               <./images/PRESS_eq1.png> <./images/PRESS_eq2.png> <./images/Plot
+.IndVar_B3_1.2.png (PNG copy)> <./images/Plot.IndVar_B3_1.3.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
+
+ []
+
+<images/Coeff_var_Eq1.png, id=333, 747.54282pt x 397.485pt>
+File: images/Coeff_var_Eq1.png Graphic file (type png)
+<use images/Coeff_var_Eq1.png>
+Package pdftex.def Info: images/Coeff_var_Eq1.png  used on input line 577.
+(pdftex.def)             Requested size: 336.39116pt x 178.8666pt.
+[16 <./images/Plot.IndVar_B3_2.3.png (PNG copy)> <./images/Coeff_var_Eq1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
+
+ []
+
+<images/Plot.IndVar_B1_1.2.png, id=341, 455.24077pt x 227.59027pt>
+File: images/Plot.IndVar_B1_1.2.png Graphic file (type png)
+<use images/Plot.IndVar_B1_1.2.png>
+Package pdftex.def Info: images/Plot.IndVar_B1_1.2.png  used on input line 597.
+
+(pdftex.def)             Requested size: 364.1931pt x 182.07245pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--607
+
+ []
+
+<images/Coeff_var_Eq2.png, id=342, 682.80093pt x 252.19218pt>
+File: images/Coeff_var_Eq2.png Graphic file (type png)
+<use images/Coeff_var_Eq2.png>
+Package pdftex.def Info: images/Coeff_var_Eq2.png  used on input line 610.
+(pdftex.def)             Requested size: 307.25757pt x 113.48543pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
+
+ []
+
+[17 <./images/Plot.IndVar_B1_1.2.png (PNG copy)> <./images/Coeff_var_Eq2.png>]
+<images/CV_all.png, id=350, 931.98187pt x 392.21532pt>
+File: images/CV_all.png Graphic file (type png)
+<use images/CV_all.png>
+Package pdftex.def Info: images/CV_all.png  used on input line 624.
+(pdftex.def)             Requested size: 484.63336pt x 203.95314pt.
+
+Overfull \hbox (29.38925pt too wide) in paragraph at lines 624--625
+ [][] 
+ []
+
+<images/CV_mean.png, id=351, 927.465pt x 374.90062pt>
+File: images/CV_mean.png Graphic file (type png)
+<use images/CV_mean.png>
+Package pdftex.def Info: images/CV_mean.png  used on input line 630.
+(pdftex.def)             Requested size: 417.3554pt x 168.70372pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 634--638
+
+ []
+
+[18 <./images/CV_all.png> <./images/CV_mean.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 639--641
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
+
+ []
+
+<images/mean_PRESS_eq2.png, id=359, 204.765pt x 34.62938pt>
+File: images/mean_PRESS_eq2.png Graphic file (type png)
+<use images/mean_PRESS_eq2.png>
+Package pdftex.def Info: images/mean_PRESS_eq2.png  used on input line 648.
+(pdftex.def)             Requested size: 92.14339pt x 15.58305pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
+
+ []
+
+<images/Pred_Cross_OIB.png, id=360, 146.949pt x 165.0165pt>
+File: images/Pred_Cross_OIB.png Graphic file (type png)
+<use images/Pred_Cross_OIB.png>
+Package pdftex.def Info: images/Pred_Cross_OIB.png  used on input line 660.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Cross_OI.png, id=361, 146.949pt x 165.0165pt>
+File: images/Pred_Cross_OI.png Graphic file (type png)
+<use images/Pred_Cross_OI.png>
+Package pdftex.def Info: images/Pred_Cross_OI.png  used on input line 664.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+<images/Pred_Cross_Q.png, id=362, 146.949pt x 165.0165pt>
+File: images/Pred_Cross_Q.png Graphic file (type png)
+<use images/Pred_Cross_Q.png>
+Package pdftex.def Info: images/Pred_Cross_Q.png  used on input line 668.
+(pdftex.def)             Requested size: 176.3379pt x 198.01877pt.
+[19 <./images/mean_PRESS_eq2.png>] [20 <./images/Pred_Cross_OIB.png> <./images/
+Pred_Cross_OI.png> <./images/Pred_Cross_Q.png>]
+<images/Plot.IndVar_Cross_B1_1.2.png, id=382, 455.24077pt x 227.59027pt>
+File: images/Plot.IndVar_Cross_B1_1.2.png Graphic file (type png)
+<use images/Plot.IndVar_Cross_B1_1.2.png>
+Package pdftex.def Info: images/Plot.IndVar_Cross_B1_1.2.png  used on input lin
+e 679.
+(pdftex.def)             Requested size: 364.1931pt x 182.07245pt.
+<images/Coeff_var_Cross.png, id=383, 609.77812pt x 426.84468pt>
+File: images/Coeff_var_Cross.png Graphic file (type png)
+<use images/Coeff_var_Cross.png>
+Package pdftex.def Info: images/Coeff_var_Cross.png  used on input line 688.
+(pdftex.def)             Requested size: 274.39761pt x 192.07832pt.
+ [21 <./images/Plot.IndVar_Cross_B1_1.2.png (PNG copy)> <./images/Coeff_var_Cro
+ss.png>]
+Overfull \hbox (6.1638pt too wide) in paragraph at lines 700--702
+\T1/cmr/m/n/10 qu'elles im-pactent dif-fé-rem-ment la va-riable \T1/cmr/m/it/10
+ Qua-lity.of.odour \T1/cmr/m/n/10 avec les va-riables \T1/cmr/m/it/10 Odor.Inte
+nsity.before.shaking
+ []
+
+[22] [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 451.
+(hyperref)                removing `math shift' on input line 714.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 451.
+(hyperref)                removing `math shift' on input line 714.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 453.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-53.
+nput line 716.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
+16.
 (C:\Users\olivi\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -1310,14 +1567,14 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 consecutive:
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 15.
-) [12]
+) [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 457.
+(hyperref)                removing `math shift' on input line 720.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 457.
+(hyperref)                removing `math shift' on input line 720.
 
 (code/scriptProject_COME_PRALON.R
 consecutive:
@@ -1333,14 +1590,14 @@ Overfull \hbox (17.14511pt too wide) in paragraph at lines 114--115
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [13]
+) [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
+(hyperref)                removing `math shift' on input line 726.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 463.
+(hyperref)                removing `math shift' on input line 726.
 
 (code/scriptProject_COME_PRALON.R
 consecutive:
@@ -1350,52 +1607,53 @@ Overfull \hbox (54.93625pt too wide) in paragraph at lines 49--50
 ][][][][][][] 
  []
 
-) [14] 
+) [26] 
 AED: lastpage setting LastPage
-[15] (Projet_MVL_COME_PRALON.aux)
+[27] (Projet_MVL_COME_PRALON.aux)
 Package rerunfilecheck Info: File `Projet_MVL_COME_PRALON.out' has not changed.
 
-(rerunfilecheck)             Checksum: 63D2A0E1BCF189B79DF9D4EC944E2BBE;2944.
+(rerunfilecheck)             Checksum: E156B985DB38A59561DA2EFED2C2B7FE;3151.
  ) 
 Here is how much of TeX's memory you used:
- 33782 strings out of 475389
- 665473 string characters out of 2777000
+ 34019 strings out of 475389
+ 671248 string characters out of 2777000
  1081448 words of memory out of 3000000
- 54401 multiletter control sequences out of 15000+600000
- 492440 words of font info for 82 fonts, out of 8000000 for 9000
+ 54567 multiletter control sequences out of 15000+600000
+ 493126 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,14n,118p,1003b,1220s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 114i,14n,118p,1090b,1220s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\eccc1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecti1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm0800.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour
-/public/bbold/dpi600\bbold10.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\olivi\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\olivi\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\olivi\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\olivi\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\
-olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\
-Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk
-><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mex10.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cmextra/cmex7.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/olivi/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/olivi/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/olivi/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/oliv
-i/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Use
-rs/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-<C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy5.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy7.pfb>
-Output written on Projet_MVL_COME_PRALON.pdf (15 pages, 535176 bytes).
+0\ecti0800.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\eccc1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecti1000.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/
+ljfour/public/bbold/dpi600\bbold10.pk> <C:\Users\olivi\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\olivi\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\olivi\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\olivi\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\olivi\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\
+olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\
+Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk
+> <C:\Users\olivi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1
+000.pk><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmex10.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cmextra/cmex7.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/olivi/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/olivi/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/olivi/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/olivi/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/User
+s/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><
+C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
+7.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy5.pfb><C:/Users/olivi/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Projet_MVL_COME_PRALON.pdf (27 pages, 2159033 bytes).
 PDF statistics:
- 859 PDF objects out of 1000 (max. 8388607)
- 143 named destinations out of 1000 (max. 500000)
- 324 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1097 PDF objects out of 1200 (max. 8388607)
+ 186 named destinations out of 1000 (max. 500000)
+ 467 words of extra memory for PDF output out of 10000 (max. 10000000)
 
